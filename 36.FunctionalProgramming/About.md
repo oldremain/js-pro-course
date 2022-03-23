@@ -2,7 +2,7 @@
 
 > **_Array Exapmle_**
 
-```json
+```js
  [
  {
 id: 1
@@ -21,7 +21,7 @@ plot: "Natasha Romanoff
 confronts the darker parts of her ledger when a dangerous conspiracy
 with ties to her past arises.",
 country: "United States",
-poster: "https://m.mediaamazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3Ym
+poster: "https://m.media-amazon.com/images/M/MV5BNjRmNDI5MjMtMmFhZi00YzcwLWI4ZGItMGI2MjI0N2Q3Ym
 IwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
 imdbRating: 6.9,
 imdbVotes: 121932,
