@@ -2,11 +2,11 @@ import { films, MovieInfo } from './data';
 // 1. Собрать в массив все жанры фильмов (без повторения)
 
 const f1 = (arr: MovieInfo[]): string[] => {
-  const arr1: string[] = arr
+  const newArr: string[] = arr
     .map((item) => item.genre)
     .reduce((accum, curr) => accum.concat(curr));
 
-  const unique: Set<string> = new Set(arr1); // ?? вроде работает
+  const unique: Set<string> = new Set(newArr); //
 
   return Array.from(unique);
 };
@@ -16,11 +16,11 @@ const f1 = (arr: MovieInfo[]): string[] => {
 // повторения)
 
 const f2 = (arr: MovieInfo[]): string[] => {
-  const arr2: string[] = arr
+  const newArr: string[] = arr
     .map((item) => item.actors)
     .reduce((accum, curr) => accum.concat(curr));
 
-  const unique: Set<string> = new Set(arr2);
+  const unique: Set<string> = new Set(newArr);
 
   return Array.from(unique);
 };
@@ -47,14 +47,14 @@ type Film = {
 };
 
 const f4 = (arr: MovieInfo[]): Film[] => {
-  const arr4 = arr.map((film) => ({
+  const result = arr.map((film) => ({
     id: film.id,
     title: film.title,
     released: film.released,
     plot: film.plot,
   }));
 
-  return arr4;
+  return result;
 };
 //console.log(f4(films));
 
@@ -64,9 +64,9 @@ const f4 = (arr: MovieInfo[]): Film[] => {
 // выхода фильма.
 
 const f5 = (arr: MovieInfo[], year: number): MovieInfo[] => {
-  const arr5 = arr.filter((film) => film.year === year);
+  const result = arr.filter((film) => film.year === year);
 
-  return arr5;
+  return result;
 };
 
 //console.log(f5(films, 2001));
@@ -77,9 +77,11 @@ const f5 = (arr: MovieInfo[], year: number): MovieInfo[] => {
 // название фильма.
 
 const f6 = (arr: MovieInfo[], str: string): MovieInfo[] => {
-  const arr6 = arr.filter((film) => film.title.toLowerCase().includes(str));
+  const result = arr.filter((film) =>
+    film.title.toLowerCase().includes(str.toLowerCase())
+  );
 
-  return arr6;
+  return result;
 };
 
 //console.log(f6(films, 'pot'));
@@ -90,13 +92,13 @@ const f6 = (arr: MovieInfo[], str: string): MovieInfo[] => {
 // название фильма или в его сюжет.
 
 const f7 = (arr: MovieInfo[], str: string): MovieInfo[] => {
-  const arr7 = arr.filter(
+  const result = arr.filter(
     (film) =>
-      film.title.toLowerCase().includes(str) ||
-      film.plot.toLowerCase().includes(str)
+      film.title.toLowerCase().includes(str.toLowerCase()) ||
+      film.plot.toLowerCase().includes(str.toLowerCase())
   );
 
-  return arr7;
+  return result;
 };
 
 //console.log(f7(films, 'dark'));
@@ -112,12 +114,13 @@ const f7 = (arr: MovieInfo[], str: string): MovieInfo[] => {
 
 const f8 = (
   arr: MovieInfo[],
-  field: string,
+  field: keyof MovieInfo,
   value: string | number
 ): MovieInfo[] => {
-  const arr8 = arr.filter((film) => film[field as keyof MovieInfo] === value);
+  const result = arr.filter((film) => film[field] === value);
 
-  return arr8;
+  return result;
 };
 
-//console.log(f8(films, 'year', 2011));
+// console.log(f8(films, 'year', 2011));
+// console.log(f8(films, 'title', 'Black Widow'));
