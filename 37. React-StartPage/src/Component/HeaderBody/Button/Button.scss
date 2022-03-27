@@ -1,0 +1,19 @@
+.Header-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5a98d0;
+  border-radius: 10px;
+  overflow: hidden;
+  a {
+    padding: 15px 50px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 162%;
+    letter-spacing: 0.04em;
+    transition: all 0.4s ease;
+    &:hover {
+      background-color: #355e83;
+    }
+  }
+}

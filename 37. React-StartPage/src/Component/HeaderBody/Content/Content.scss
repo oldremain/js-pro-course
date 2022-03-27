@@ -1,0 +1,24 @@
+.Header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 510px;
+}
+.Header-title {
+  font-family: 'Galien';
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 115%;
+  color: #1f3f68;
+  letter-spacing: 0.04em;
+  margin: 0 0 40px 0;
+}
+
+.Header-subtitle {
+  font-size: 16px;
+  line-height: 162%;
+  letter-spacing: 0.05em;
+  color: #1f3f68;
+  opacity: 0.6;
+  margin: 0 0 70px 0;
+}
