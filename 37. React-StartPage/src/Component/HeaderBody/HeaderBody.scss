@@ -2,3 +2,10 @@
   padding: 0 0 0 82px;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .Header-body {
+    padding: 0 0 0 20px;
+    display: flex;
+  }
+}

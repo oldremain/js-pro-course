@@ -9,3 +9,9 @@
     color: #1f3f68;
   }
 }
+
+@media (max-width: 768px) {
+  .Header-nav {
+    display: none;
+  }
+}

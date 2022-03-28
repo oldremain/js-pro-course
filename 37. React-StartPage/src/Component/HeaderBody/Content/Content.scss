@@ -22,3 +22,20 @@
   opacity: 0.6;
   margin: 0 0 70px 0;
 }
+
+@media (max-width: 768px) {
+  .Header-title {
+    font-size: 50px;
+  }
+  .Header-subtitle {
+    font-size: 16px;
+  }
+}
+@media (max-width: 440px) {
+  br {
+    display: none;
+  }
+  .Header-subtitle {
+    margin: 0 0 40px 0;
+  }
+}

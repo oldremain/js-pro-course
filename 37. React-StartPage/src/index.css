@@ -95,3 +95,8 @@ body {
   height: 100%;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  #page {
+    overflow: visible;
+  }
+}
