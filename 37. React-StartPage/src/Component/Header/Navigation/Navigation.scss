@@ -7,6 +7,21 @@
   a {
     font-size: 20px;
     color: #1f3f68;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #5e9ef1;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
 
