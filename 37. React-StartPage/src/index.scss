@@ -75,18 +75,12 @@ h6 {
   font-weight: 400;
 }
 
-.container {
-  max-width: 1200px;
-  padding: 0 15px;
-  margin: auto;
-}
-
 body {
   font-family: 'Gilroy';
   font-weight: 500;
 }
 
-#page {
+#root {
   background: linear-gradient(
     0deg,
     #98c3e8 8.84%,
