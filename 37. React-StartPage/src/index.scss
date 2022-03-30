@@ -79,18 +79,3 @@ body {
   font-family: 'Gilroy';
   font-weight: 500;
 }
-
-#root {
-  background: linear-gradient(
-    0deg,
-    #98c3e8 8.84%,
-    rgba(152, 195, 232, 0) 31.12%
-  );
-  height: 100%;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  #page {
-    overflow: visible;
-  }
-}
