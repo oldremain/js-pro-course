@@ -1,18 +1,21 @@
 import './App.scss';
 import Header from './Component/Header/Header';
 import HeaderBody from './Component/HeaderBody/HeaderBody';
+import Posts from './Component/Posts/Posts';
 
 function App() {
   return (
     <>
-      <header>
+      <header className="Header">
         <div className="container">
           <Header />
           <HeaderBody />
         </div>
       </header>
-      <section>
-        <div className="container"></div>
+      <section className="Posts">
+        <div className="container">
+          <Posts />
+        </div>
       </section>
     </>
   );

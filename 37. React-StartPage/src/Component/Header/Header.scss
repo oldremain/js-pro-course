@@ -7,6 +7,9 @@
 }
 
 @media (max-width: 768px) {
+  .Header {
+    overflow: visible;
+  }
   .Page-header {
     margin: 0 0 16px 0;
   }

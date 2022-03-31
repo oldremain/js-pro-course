@@ -6,3 +6,30 @@
   padding: 0 15px;
   margin: auto;
 }
+
+.Header {
+  background: linear-gradient(
+    0deg,
+    #98c3e8 8.84%,
+    rgba(152, 195, 232, 0) 31.12%
+  );
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 180px;
+}
+
+@media (max-width: 1150px) {
+  .Header {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Header {
+    overflow: visible;
+  }
+}
+
+.Posts {
+  padding: 100px 0;
+}
