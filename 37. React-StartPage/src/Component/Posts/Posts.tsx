@@ -1,19 +1,16 @@
 import PostsCard from './Card/PostsCard';
 import { postsData } from './Data';
+
 import './Posts.scss';
 
-// type PropsType = {};
+type PropsType = {};
 
-const Posts = () => {
+const Posts: React.FC<PropsType> = () => {
   return (
     <div className="Posts-wrap">
-      <PostsCard />
-      <PostsCard />
-      <PostsCard />
-      <PostsCard />
-      <PostsCard />
-      <PostsCard />
-      <PostsCard />
+      {postsData.map((item) => (
+        <PostsCard key={item.id} data={item} />
+      ))}
     </div>
   );
 };

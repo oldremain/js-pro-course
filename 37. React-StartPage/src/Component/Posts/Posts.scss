@@ -3,3 +3,10 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
 }
+
+@media (max-width: 669px) {
+  .Posts-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
+    justify-content: center;
+  }
+}
