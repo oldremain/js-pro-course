@@ -13,7 +13,7 @@ type Error = {
   message: string;
 };
 
-const URL = 'ttps://studapi.teachmeskills.by/blog/posts/?limit=10&offset=0';
+const URL = 'https://studapi.teachmeskills.by/blog/posts/?limit=10&offset=0';
 
 const Posts: React.FC<PropsType> = () => {
   const [post, setPost] = useState<PostType[]>([]);
