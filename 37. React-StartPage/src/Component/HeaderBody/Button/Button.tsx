@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './Button.scss';
 
-const Button = () => {
+const Button: React.FC = () => {
   return (
     <button className="Header-btn">
       <a href="/">See Our Project</a>

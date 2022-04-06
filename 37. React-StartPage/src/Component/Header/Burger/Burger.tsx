@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './Burger.scss';
 
-const Burger = () => {
+const Burger: React.FC = () => {
   return (
     <div className="Header-burger">
       <span></span>

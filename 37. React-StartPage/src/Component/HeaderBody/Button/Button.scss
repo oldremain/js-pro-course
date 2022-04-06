@@ -13,7 +13,7 @@
     letter-spacing: 0.04em;
     transition: all 0.4s ease;
     &:hover {
-      background-color: #355e83;
+      background-color: darken(#5a98d0, 20%);
     }
   }
 }

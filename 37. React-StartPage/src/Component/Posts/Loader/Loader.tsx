@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './Loader.scss';
 
-const Loader = () => {
+const Loader: React.FC = () => {
   return (
     <>
       <div className="loadingio-spinner-spinner-2a1c5nm74ux">

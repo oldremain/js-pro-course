@@ -1,10 +1,12 @@
-import './App.scss';
-import Form from './Component/Form/Form';
+import React from 'react';
 import Header from './Component/Header/Header';
 import HeaderBody from './Component/HeaderBody/HeaderBody';
 import Posts from './Component/Posts/Posts';
+import Form from './Component/Form/Form';
 
-function App() {
+import './App.scss';
+
+const App: React.FC = () => {
   return (
     <>
       <header className="Header">
@@ -14,9 +16,7 @@ function App() {
         </div>
       </header>
       <section className="Posts">
-        <div className="container">
-          <Posts />
-        </div>
+        <Posts />
       </section>
       <section className="Form">
         <div className="container">
@@ -25,6 +25,6 @@ function App() {
       </section>
     </>
   );
-}
+};
 
 export default App;

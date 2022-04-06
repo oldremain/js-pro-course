@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PostType from '../../../types/PostType';
 
 import './PostsCard.scss';
-import notFoundImage from './notfound.png';
+import notFoundImage from '../../../assets/img/notfound.png';
 
 type PropsType = {
   data: PostType;
 };
 
 const PostsCard: React.FC<PropsType> = ({ data }) => {
+  const [error, setError] = useState(false);
+
+  const handleError = () => {
+    setError(true);
+  };
   return (
     <div className="Card-wrap">
       <div className="Image">
-        {data.image ? (
-          <img src={data.image} alt="card" />
+        {!!data.image && !error ? (
+          <img src={data.image} onError={handleError} alt="card" />
         ) : (
           <img src={notFoundImage} alt="notfound" />
         )}

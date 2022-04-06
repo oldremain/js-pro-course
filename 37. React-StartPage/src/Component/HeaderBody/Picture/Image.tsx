@@ -1,10 +1,12 @@
-import './Image.scss';
-import background from './back.jpg';
+import React from 'react';
 
-const Image = () => {
+import './Image.scss';
+import background from '../../../assets/img/background.jpg';
+
+const Image: React.FC = () => {
   return (
     <div className="Header-image">
-      <img src={background} alt="image" />
+      <img src={background} alt="background" />
     </div>
   );
 };

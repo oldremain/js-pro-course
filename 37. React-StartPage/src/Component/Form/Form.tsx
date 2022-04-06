@@ -1,17 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import FormField from '../UI/FormField';
+
 import './Form.scss';
 
-const Form = () => {
+const Form: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const emailHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const passHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassword(e.target.value);
-  };
 
   const submitHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -27,24 +21,8 @@ const Form = () => {
         <div className="Registration">Registration</div>
       </div>
       <form action="#" className="Form-body" onSubmit={submitHandler}>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={emailHandler}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={passHandler}
-          />
-        </label>
+        <FormField label="Email" value={email} setValue={setEmail} />
+        <FormField label="Password" value={password} setValue={setPassword} />
         <button type="submit" className="Form-btn">
           Login
         </button>

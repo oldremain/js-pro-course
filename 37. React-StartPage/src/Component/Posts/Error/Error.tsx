@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import './Error.scss';
 
-const Error = (props: { name: string; message: string }) => {
+type PropsType = {
+  name: string;
+  message: string;
+};
+
+const Error: React.FC<PropsType> = (props) => {
   const [visible, setVisible] = useState(true);
 
   return (
@@ -12,7 +18,7 @@ const Error = (props: { name: string; message: string }) => {
         <button
           className="Error-btn"
           onClick={() => {
-            setVisible(!visible);
+            setVisible((prevState) => !prevState);
           }}
         >
           Ok
