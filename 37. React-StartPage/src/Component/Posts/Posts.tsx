@@ -45,13 +45,19 @@ const Posts: React.FC<PropsType> = () => {
   };
 
   return (
-    <div className="Posts-wrap">
-      {post.map((item) => (
-        <PostsCard key={item.id} data={item} />
-      ))}
-      {loading ? <Loader /> : ''}
-      {error.status ? <Error name={error.name} message={error.message} /> : ''}
-    </div>
+    <section className="Posts">
+      <div className="Posts-wrap">
+        {post.map((item) => (
+          <PostsCard key={item.id} data={item} />
+        ))}
+        {loading ? <Loader /> : ''}
+        {error.status ? (
+          <Error name={error.name} message={error.message} />
+        ) : (
+          ''
+        )}
+      </div>
+    </section>
   );
 };
 
