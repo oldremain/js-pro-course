@@ -1,8 +1,8 @@
 .Posts-wrap {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
+  position: relative;
 }
 
 @media (max-width: 669px) {
