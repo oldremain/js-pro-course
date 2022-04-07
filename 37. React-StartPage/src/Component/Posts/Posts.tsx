@@ -3,6 +3,7 @@ import PostType from '../../types/PostType';
 import PostsCard from './Card/PostsCard';
 import Error from './Error/Error';
 import Loader from './Loader/Loader';
+
 import './Posts.scss';
 
 type PropsType = {};
@@ -13,7 +14,7 @@ type Error = {
   message: string;
 };
 
-const URL = 'ttps://studapi.teachmeskills.by/blog/posts/?limit=10&offset=0';
+const URL = 'https://studapi.teachmeskills.by/blog/posts/?limit=20&offset=0';
 
 const Posts: React.FC<PropsType> = () => {
   const [post, setPost] = useState<PostType[]>([]);
@@ -25,13 +26,12 @@ const Posts: React.FC<PropsType> = () => {
   });
 
   useEffect(() => {
-    console.log('Hi useEffect');
     console.log(post);
   }, [post]);
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(fetchData, 2000);
+    fetchData();
   }, []);
 
   const fetchData = () => {
@@ -45,13 +45,19 @@ const Posts: React.FC<PropsType> = () => {
   };
 
   return (
-    <div className="Posts-wrap">
-      {post.map((item) => (
-        <PostsCard key={item.id} data={item} />
-      ))}
-      {loading ? <Loader /> : ''}
-      {error.status ? <Error name={error.name} message={error.message} /> : ''}
-    </div>
+    <section className="Posts">
+      <div className="Posts-wrap">
+        {post.map((item) => (
+          <PostsCard key={item.id} data={item} />
+        ))}
+        {loading ? <Loader /> : ''}
+        {error.status ? (
+          <Error name={error.name} message={error.message} />
+        ) : (
+          ''
+        )}
+      </div>
+    </section>
   );
 };
 

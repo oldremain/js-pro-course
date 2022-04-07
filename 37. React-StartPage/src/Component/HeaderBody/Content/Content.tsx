@@ -1,7 +1,9 @@
-import './Content.scss';
+import React from 'react';
 import Button from '../Button/Button';
 
-const Content = () => {
+import './Content.scss';
+
+const Content: React.FC = () => {
   return (
     <div className="Header-content">
       <h1 className="Header-title">New Automation Tool for Your Home</h1>

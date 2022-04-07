@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './Navigation.scss';
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <nav className="Header-nav">
       <a href="/">About</a>

@@ -1,7 +1,9 @@
-import './Logo.scss';
-import logo from './logo.jpg';
+import React from 'react';
 
-const Logo = () => {
+import './Logo.scss';
+import logo from '../../../assets/img/logo.jpg';
+
+const Logo: React.FC = () => {
   return (
     <a href="/" className="Header-logo ">
       <img src={logo} alt="logo" />

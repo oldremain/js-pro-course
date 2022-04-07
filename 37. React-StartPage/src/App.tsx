@@ -1,24 +1,18 @@
-import './App.scss';
+import React from 'react';
 import Header from './Component/Header/Header';
-import HeaderBody from './Component/HeaderBody/HeaderBody';
 import Posts from './Component/Posts/Posts';
+import Form from './Component/Registration/Form';
 
-function App() {
+import './App.scss';
+
+const App: React.FC = () => {
   return (
     <>
-      <header className="Header">
-        <div className="container">
-          <Header />
-          <HeaderBody />
-        </div>
-      </header>
-      <section className="Posts">
-        <div className="container">
-          <Posts />
-        </div>
-      </section>
+      <Header />
+      <Posts />
+      <Form />
     </>
   );
-}
+};
 
 export default App;
