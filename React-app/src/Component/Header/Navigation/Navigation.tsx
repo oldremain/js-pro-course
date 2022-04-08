@@ -2,9 +2,13 @@ import React from 'react';
 
 import './Navigation.scss';
 
-const Navigation: React.FC = () => {
+type NavigationPropsType = {
+  className: string;
+};
+
+const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
   return (
-    <nav className="Header-nav">
+    <nav className={`Header-nav ${className}`}>
       <a href="/">About</a>
       <a href="/">What we do</a>
       <a href="/">Project</a>

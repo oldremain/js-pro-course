@@ -2,9 +2,13 @@ import React from 'react';
 
 import './Burger.scss';
 
-const Burger: React.FC = () => {
+type BurgerPropsType = {
+  onClick: () => void;
+};
+
+const Burger: React.FC<BurgerPropsType> = ({ onClick }) => {
   return (
-    <div className="Header-burger">
+    <div className="Header-burger" onClick={onClick}>
       <span></span>
       <span></span>
       <span></span>
