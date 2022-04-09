@@ -20,7 +20,8 @@ const Header: React.FC = () => {
         <div className="Page-header">
           <Logo />
           {open && <Navigation className={'mobile'} />}
-          <Navigation className={'desktop'} /> // отображается только на desktop
+          <Navigation className={'desktop'} />
+          {/*show only on desktop*/}
           <Burger
             open={open}
             size={'30px'}

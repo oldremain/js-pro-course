@@ -10,12 +10,7 @@ type BurgerPropsType = {
   onClick: () => void;
 };
 
-const Burger: React.FC<BurgerPropsType> = ({
-  open,
-  size,
-  color,
-  onClick,
-}): any => {
+const Burger: React.FC<BurgerPropsType> = ({ open, size, color, onClick }) => {
   return (
     <>
       {open ? (
