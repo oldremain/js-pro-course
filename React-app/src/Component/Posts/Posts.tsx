@@ -50,12 +50,8 @@ const Posts: React.FC<PropsType> = () => {
         {post.map((item) => (
           <PostsCard key={item.id} data={item} />
         ))}
-        {loading ? <Loader /> : ''}
-        {error.status ? (
-          <Error name={error.name} message={error.message} />
-        ) : (
-          ''
-        )}
+        {loading && <Loader />}
+        {error.status && <Error name={error.name} message={error.message} />}
       </div>
     </section>
   );
