@@ -28,6 +28,7 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
             animate={animateTo}
             transition={transition}
             href={ref.path}
+            key={ref.name}
           >
             {ref.name}
           </motion.a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Component/Header/Header';
 import Posts from './Component/Posts/Posts';
-import Form from './Component/Registration/Form';
+import Form from './Component/Registration/Registration';
 
 import './App.scss';
 
@@ -10,7 +10,11 @@ const App: React.FC = () => {
     <>
       <Header />
       <Posts />
-      <Form />
+      <section className="Form">
+        <div className="container">
+          <Form />
+        </div>
+      </section>
     </>
   );
 };

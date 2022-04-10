@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 
 import './Button.scss';
 
@@ -6,10 +6,10 @@ type PropsType = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Button: React.FC<PropsType> = ({ onClick }) => {
+const Button: React.FC<PropsType> = ({ onClick, children }) => {
   return (
     <button className="Form-btn" onClick={onClick}>
-      Login
+      {children}
     </button>
   );
 };
