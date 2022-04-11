@@ -1,14 +1,24 @@
 import React from 'react';
+import { CgMenu as OpenIcon, CgClose as CloseIcon } from 'react-icons/cg';
 
 import './Burger.scss';
 
-const Burger: React.FC = () => {
+type BurgerPropsType = {
+  open: boolean;
+  size: string;
+  color: string;
+  onClick: () => void;
+};
+
+const Burger: React.FC<BurgerPropsType> = ({ open, size, color, onClick }) => {
   return (
-    <div className="Header-burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <>
+      {open ? (
+        <CloseIcon size={size} color={color} onClick={onClick} />
+      ) : (
+        <OpenIcon size={size} color={color} onClick={onClick} />
+      )}
+    </>
   );
 };
 

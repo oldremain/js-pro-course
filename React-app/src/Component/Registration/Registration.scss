@@ -1,0 +1,85 @@
+.Form-caption {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 26px;
+  font-family: 'Gilroy';
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin: 0 0 40px 0;
+
+  .Login {
+    color: #4d8de1;
+    &::after {
+      content: '|';
+      margin-left: 15px;
+    }
+  }
+  .Registration {
+    color: #555a61;
+    opacity: 0.6;
+  }
+}
+
+.Form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  label {
+    width: 250px;
+    color: #252525;
+    opacity: 0.8;
+  }
+  input {
+    width: 100%;
+    display: block;
+    border: 2px solid rgb(100, 116, 219);
+    background-color: rgba(188, 217, 241, 0.2);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0 0 0;
+
+    &:focus {
+      border: 2px solid darken(rgb(100, 116, 219), 20%);
+    }
+  }
+}
+
+.Form-btn {
+  width: 250px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #4d8de1;
+  color: #ffffff;
+  font-size: 18px;
+  margin: 20px 0 40px 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #3d7ed4;
+  }
+}
+
+.Help {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  p {
+    color: #555a61;
+    opacity: 0.6;
+  }
+
+  a {
+    color: #4d8de1;
+    opacity: 0.8;
+    font-weight: bolder;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
