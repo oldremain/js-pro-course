@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import eng from '../../../translations/eng.json';
+import ru from '../../../translations/ru.json';
 
 import './Navigation.scss';
 import useTranslate from '../../hooks/useTranslate';
-//import LanguageContext from '../../../contexts/LanguageContext';
 
 type NavigationPropsType = {
     className: string;
@@ -15,15 +16,26 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
     const transition = { duration: 0.7, delay: 0.2 };
 
     const refs = [
-        { nameEng: 'About', nameRu: 'О компании', path: '/' },
-        { nameEng: 'What we do', nameRu: 'Наша деятельность', path: '/' },
-        { nameEng: 'Project', nameRu: 'Проекты', path: '/' },
-        { nameEng: 'How it work with us', nameRu: 'Работа с нами', path: '/' },
+        {
+            name: 'header.nav.about',
+            path: '/1',
+        },
+        {
+            name: 'header.nav.howItWork',
+            path: '/2',
+        },
+        {
+            name: 'header.nav.project',
+            path: '/3',
+        },
+        {
+            name: 'header.nav.whatWeDo',
+            path: '/4',
+        },
     ];
 
-    //const { lang } = useContext(LanguageContext);
-
-    const { lang, setLang } = useTranslate();
+    const { lang, t } = useTranslate();
+    console.log(lang);
 
     return (
         <nav className={`Header-nav ${className}`}>
@@ -34,9 +46,10 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
                         animate={animateTo}
                         transition={transition}
                         href={ref.path}
-                        key={ref.nameEng}
+                        key={ref.name}
                     >
-                        {lang === 'eng' ? ref.nameEng : ref.nameRu}
+                        {/* {lang === 'eng' ? ref.nameEng : ref.nameRu} */}
+                        {t(ref.name)}
                     </motion.a>
                 );
             })}

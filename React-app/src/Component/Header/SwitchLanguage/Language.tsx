@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 
 import './Language.scss';
-//import LanguageContext from '../../../contexts/LanguageContext';
 import useTranslate from '../../hooks/useTranslate';
 
 const Language: React.FC = () => {
-    //const { lang, setLang } = useContext(LanguageContext);
-
     const { lang, setLang: _setLang } = useTranslate();
     console.log(lang);
 
