@@ -1,68 +1,68 @@
 * {
-  padding: 0;
-  margin: 0;
-  border: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 :focus,
 :active {
-  outline: none;
+    outline: none;
 }
 a:focus,
 a:active {
-  outline: none;
+    outline: none;
 }
 
 footer,
 header,
 aside,
 img {
-  display: block;
+    display: block;
 }
 
 html,
 body {
-  height: 100%;
-  width: 100%;
-  font-size: 100%;
-  font-size: 16px;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    font-size: 16px;
 }
 input,
 button,
 textarea {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 input::-ms-clear {
-  display: none;
+    display: none;
 }
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+    padding: 0;
+    border: 0;
 }
 a,
 a:visited {
-  text-decoration: none;
-  //color: inherit;
+    text-decoration: none;
+    //color: inherit;
 }
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 ul li {
-  list-style: none;
+    list-style: none;
 }
 ol li {
-  list-style: none;
+    list-style: none;
 }
 img {
-  vertical-align: top;
+    vertical-align: top;
 }
 
 h1,
@@ -71,11 +71,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: 400;
+    font-size: inherit;
+    font-weight: 400;
 }
 
 body {
-  font-family: 'Gilroy';
-  font-weight: 500;
+    font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 500;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
