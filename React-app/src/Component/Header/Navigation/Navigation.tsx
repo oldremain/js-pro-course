@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 
 import './Navigation.scss';
+import useTranslate from '../../hooks/useTranslate';
+//import LanguageContext from '../../../contexts/LanguageContext';
 
 type NavigationPropsType = {
     className: string;
@@ -13,11 +15,15 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
     const transition = { duration: 0.7, delay: 0.2 };
 
     const refs = [
-        { name: 'About', path: '/' },
-        { name: 'What we do', path: '/' },
-        { name: 'Project', path: '/' },
-        { name: 'How it work with us', path: '/' },
+        { nameEng: 'About', nameRu: 'О компании', path: '/' },
+        { nameEng: 'What we do', nameRu: 'Наша деятельность', path: '/' },
+        { nameEng: 'Project', nameRu: 'Проекты', path: '/' },
+        { nameEng: 'How it work with us', nameRu: 'Работа с нами', path: '/' },
     ];
+
+    //const { lang } = useContext(LanguageContext);
+
+    const { lang, setLang } = useTranslate();
 
     return (
         <nav className={`Header-nav ${className}`}>
@@ -28,9 +34,9 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
                         animate={animateTo}
                         transition={transition}
                         href={ref.path}
-                        key={ref.name}
+                        key={ref.nameEng}
                     >
-                        {ref.name}
+                        {lang === 'eng' ? ref.nameEng : ref.nameRu}
                     </motion.a>
                 );
             })}
