@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
+import useTranslate from "../../hooks/useTranslate";
 
-import './Button.scss';
+import "./Button.scss";
 
 const Button: React.FC = () => {
-  return (
-    <button className="Header-btn">
-      <a href="/">See Our Project</a>
-    </button>
-  );
+    const { t } = useTranslate();
+    return (
+        <button className="Header-btn">
+            <a href="/">{t("header.mainPage.btn")}</a>
+        </button>
+    );
 };
 
 export default Button;

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
+import useTranslate from "../../hooks/useTranslate";
 
-import './Language.scss';
-import useTranslate from '../../hooks/useTranslate';
+import "./Language.scss";
 
 const Language: React.FC = () => {
     const { lang, setLang: _setLang } = useTranslate();
@@ -12,18 +12,18 @@ const Language: React.FC = () => {
             <div className="Language-wrap">
                 <button
                     className={`Language__btn btn_eng ${
-                        lang === 'eng' ? 'active' : ''
+                        lang === "eng" ? "active" : ""
                     }`}
-                    onClick={() => _setLang('eng')}
+                    onClick={() => _setLang("eng")}
                 >
                     Eng
                 </button>
                 <div className="Language-separator"></div>
                 <button
                     className={`Language__btn btn_ru ${
-                        lang === 'ru' ? 'active' : ''
+                        lang === "ru" ? "active" : ""
                     }`}
-                    onClick={() => _setLang('ru')}
+                    onClick={() => _setLang("ru")}
                 >
                     Ru
                 </button>

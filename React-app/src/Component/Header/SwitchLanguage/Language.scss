@@ -22,6 +22,8 @@
     }
 
     & .Language-separator {
+        position: relative;
+        transform: translateY(6px);
         width: 1px;
         background-color: #555a61;
         height: 18px;

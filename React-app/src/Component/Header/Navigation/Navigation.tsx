@@ -1,10 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import eng from '../../../translations/eng.json';
-import ru from '../../../translations/ru.json';
+import React from "react";
+import { motion } from "framer-motion";
+import useTranslate from "../../hooks/useTranslate";
 
-import './Navigation.scss';
-import useTranslate from '../../hooks/useTranslate';
+import "./Navigation.scss";
 
 type NavigationPropsType = {
     className: string;
@@ -17,25 +15,25 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
 
     const refs = [
         {
-            name: 'header.nav.about',
-            path: '/1',
+            name: "header.nav.link.about",
+            path: "/1",
         },
         {
-            name: 'header.nav.howItWork',
-            path: '/2',
+            name: "header.nav.link.howItWork",
+            path: "/2",
         },
         {
-            name: 'header.nav.project',
-            path: '/3',
+            name: "header.nav.link.project",
+            path: "/3",
         },
         {
-            name: 'header.nav.whatWeDo',
-            path: '/4',
+            name: "header.nav.link.whatWeDo",
+            path: "/4",
         },
     ];
 
-    const { lang, t } = useTranslate();
-    console.log(lang);
+    const { t } = useTranslate();
+    //console.log(lang);
 
     return (
         <nav className={`Header-nav ${className}`}>
@@ -48,8 +46,7 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
                         href={ref.path}
                         key={ref.name}
                     >
-                        {/* {lang === 'eng' ? ref.nameEng : ref.nameRu} */}
-                        {t(ref.name)}
+                        {t(ref.name)} {/* перевод ссылки */}
                     </motion.a>
                 );
             })}

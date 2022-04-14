@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
-import PostsContext from '../../contexts/PostsContext';
-import PostType from '../../types/PostType';
+import { useState, useEffect } from "react";
+import PostType from "../../types/PostType";
 
 type Error = {
     status: boolean;
@@ -8,18 +7,17 @@ type Error = {
     message: string;
 };
 
-const URL = 'https://studapi.teachmeskills.by/blog/posts/?limit=15&offset=0';
+const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=15&offset=0";
 
 const usePosts = () => {
+    const [postCount, setCount] = useState(0);
     const [posts, setPosts] = useState<PostType[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<Error>({
         status: false,
-        name: '',
-        message: '',
+        name: "",
+        message: "",
     });
-
-    const { postCount, setCount } = useContext(PostsContext);
 
     useEffect(() => {
         fetchData();
