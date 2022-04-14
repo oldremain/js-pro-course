@@ -1,14 +1,17 @@
-import React from 'react';
+import React from "react";
+import useTranslate from "../../hooks/useTranslate";
 
-import './Help.scss';
+import "./Help.scss";
 
 const Help: React.FC = () => {
-  return (
-    <div className="Help">
-      <p>Forgot your password ?</p>
-      <a href="/">Reset password</a>
-    </div>
-  );
+    const { t } = useTranslate();
+
+    return (
+        <div className="Help">
+            <p>{t("registration.forgotPassword.question")}</p>
+            <a href="/">{t("registration.resetPassword.link")}</a>
+        </div>
+    );
 };
 
 export default Help;

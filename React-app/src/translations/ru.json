@@ -1,0 +1,17 @@
+{
+    "header.nav.link.about": "О компании",
+    "header.nav.link.whatWeDo": "Наша деятельность",
+    "header.nav.link.project": "Проекты",
+    "header.nav.link.howItWork": "Работа с нами",
+    "header.mainPage.title": "Новый инструмент автоматизации для Вашего дома",
+    "header.mainPage.subtitle": "Морковь Lorem ipsum, улучшенный мониторинг программа. Магазин теннисных кортов vulputate ultrices mauris расслабьтесь в.Региональный аэропорт Посуэре солличитудин одио",
+    "header.mainPage.btn": "Наша продукция",
+    "registration.header": "Регистрация",
+    "registration.name": "Имя",
+    "registration.email": "Email",
+    "registration.password": "Пароль",
+    "registration.confirmPassword": "Подтвердите пароль",
+    "registration.submit": "Зарегистрироваться",
+    "registration.forgotPassword.question": "Забыли пароль ?",
+    "registration.resetPassword.link": "Сбросить пароль"
+}

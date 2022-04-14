@@ -1,0 +1,44 @@
+.Language-wrap {
+    display: flex;
+    gap: 15px;
+    padding: 15px 10px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+
+    & .Language__btn {
+        font-family: 'Galien';
+        background: transparent;
+        font-weight: bolder;
+        color: #555a61;
+        opacity: 0.8;
+    }
+
+    & .active {
+        color: #3470bf;
+        background-color: rgb(224, 224, 217);
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    & .Language-separator {
+        position: relative;
+        transform: translateY(6px);
+        width: 1px;
+        background-color: #555a61;
+        height: 18px;
+    }
+}
+
+@media (max-width: 769px) {
+    .Language-wrap {
+        right: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .Language-wrap {
+        right: 80px;
+        top: 20px;
+    }
+}

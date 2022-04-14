@@ -1,0 +1,17 @@
+{
+    "header.nav.link.about": "About",
+    "header.nav.link.whatWeDo": "What we do",
+    "header.nav.link.project": "Project",
+    "header.nav.link.howItWork": "How it work with us",
+    "header.mainPage.title": "New Automation Tool for Your Home",
+    "header.mainPage.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscingelit. Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus elit.",
+    "header.mainPage.btn": "See Our Project",
+    "registration.header": "Registration",
+    "registration.name": "Name",
+    "registration.email": "Email",
+    "registration.password": "Password",
+    "registration.confirmPassword": "Confirm Password",
+    "registration.submit": "Sign up",
+    "registration.forgotPassword.question": "Forgot your password ?",
+    "registration.resetPassword.link": "Reset password"
+}
