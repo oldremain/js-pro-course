@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PostType from "../../types/PostType";
 
-type Error = {
+type ErrorType = {
     status: boolean;
     name: string;
     message: string;
@@ -13,7 +13,7 @@ const usePosts = () => {
     const [postCount, setCount] = useState(0);
     const [posts, setPosts] = useState<PostType[]>([]);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<Error>({
+    const [error, setError] = useState<ErrorType>({
         status: false,
         name: "",
         message: "",
