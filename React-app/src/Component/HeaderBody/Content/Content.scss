@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 510px;
+    max-width: 510px;
 }
 .Header-title {
     font-family: "Galien";
@@ -25,18 +25,21 @@
 
 @media (max-width: 768px) {
     .Header-title {
-        font-size: 50px;
+        font-size: 40px;
     }
     .Header-subtitle {
-        font-size: 16px;
+        font-size: 15px;
         margin: 0 0 40px 0;
     }
 }
 @media (max-width: 440px) {
-    br {
-        display: none;
+    .Header-title {
+        font-size: 35px;
     }
     .Header-subtitle {
-        margin: 0 0 40px 0;
+        font-size: 14px;
+    }
+    br {
+        display: none;
     }
 }

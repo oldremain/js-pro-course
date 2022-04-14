@@ -1,28 +1,28 @@
 .Posts-wrap {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-  position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    position: relative;
 }
 
 @media (max-width: 669px) {
-  .Posts-wrap {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
-    justify-content: center;
-  }
+    .Posts-wrap {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
+        justify-content: center;
+    }
 }
 
 .Post-count {
-  max-width: 300px;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
-  border-radius: 10px;
-  margin: 30px;
-  font-size: 20px;
-  color: rgb(130, 130, 130);
+    max-width: 300px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+    border-radius: 10px;
+    margin: 30px;
+    font-size: 20px;
+    color: rgb(130, 130, 130);
 
-  & span {
-    font-weight: bolder;
-  }
+    & span {
+        font-weight: bolder;
+    }
 }
