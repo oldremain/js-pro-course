@@ -15,8 +15,8 @@
         #98c3e8 8.84%,
         rgba(152, 195, 232, 0) 31.12%
     );
-    height: 100%;
-    overflow: hidden;
+    min-height: 100vh;
+    //overflow: hidden;
 }
 
 @media (max-width: 768px) {

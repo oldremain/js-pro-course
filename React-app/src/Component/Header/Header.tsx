@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import Logo from "./Logo/Logo";
 import Navigation from "./Navigation/Navigation";
 import Burger from "./Burger/Burger";
-import HeaderBody from "../HeaderBody/HeaderBody";
+//import HeaderBody from "../HeaderBody/HeaderBody";
 import Language from "./SwitchLanguage/Language";
 
 import "./Header.scss";
@@ -12,8 +13,13 @@ const Header: React.FC = () => {
 
     const clickHandler = () => {
         setOpen((open) => !open);
-        console.log(open, "status was changed");
     };
+
+    useEffect(() => {
+        open
+            ? (document.body.style.overflow = "hidden")
+            : (document.body.style.overflow = "");
+    }, [open]);
 
     return (
         <header className="Header">
@@ -31,7 +37,7 @@ const Header: React.FC = () => {
                     />
                     <Language />
                 </div>
-                <HeaderBody />
+                <Outlet />
             </div>
         </header>
     );

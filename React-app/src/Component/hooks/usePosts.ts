@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PostType from "../../types/PostType";
 
-type ErrorType = {
+export type ErrorType = {
     status: boolean;
     name: string;
     message: string;

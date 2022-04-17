@@ -10,10 +10,14 @@ const Registration: React.FC = () => {
     const { t } = useTranslate();
 
     return (
-        <FormCard header={t("registration.header")}>
-            <Controls />
-            <Help />
-        </FormCard>
+        <section className="Form">
+            <div className="container">
+                <FormCard header={t("registration.header")}>
+                    <Controls />
+                    <Help />
+                </FormCard>
+            </div>
+        </section>
     );
 };
 
