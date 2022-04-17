@@ -1,3 +1,12 @@
 .Header-logo {
-  flex: 1 0 20%;
+    flex: 1 0 20%;
+    display: flex;
+    gap: 15px;
+
+    & .Logo-name {
+        align-self: center;
+        font-family: "Ms Madi", cursive;
+        font-weight: bolder;
+        color: #3e6ead;
+    }
 }

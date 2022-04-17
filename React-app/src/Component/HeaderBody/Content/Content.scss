@@ -7,7 +7,7 @@
 .Header-title {
     font-family: "Galien";
     font-weight: 600;
-    font-size: 48px;
+    font-size: 45px;
     line-height: 115%;
     color: #1f3f68;
     letter-spacing: 0.04em;
@@ -21,6 +21,12 @@
     color: #1f3f68;
     opacity: 0.6;
     margin: 0 0 70px 0;
+}
+
+@media (max-width: 1150px) {
+    .Header-subtitle {
+        margin: 0 0 45px 0;
+    }
 }
 
 @media (max-width: 768px) {

@@ -1,13 +1,12 @@
 .Language-wrap {
     display: flex;
     gap: 15px;
-    padding: 15px 10px;
     position: absolute;
-    top: 0;
+    top: 3px;
     right: 30px;
 
     & .Language__btn {
-        font-family: 'Galien';
+        font-family: "Galien";
         background: transparent;
         font-weight: bolder;
         color: #555a61;
@@ -30,15 +29,16 @@
     }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 833px) {
     .Language-wrap {
-        right: 15px;
+        right: 100px;
+        top: 25px;
     }
 }
 
 @media (max-width: 400px) {
     .Language-wrap {
         right: 80px;
-        top: 20px;
+        top: 35px;
     }
 }

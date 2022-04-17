@@ -5,11 +5,12 @@
     gap: 40px;
 
     a {
+        font-family: "Shadows Into Light", cursive;
         font-size: 20px;
         color: #3e6ead;
         position: relative;
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: -5px;
             left: 0;
@@ -22,6 +23,12 @@
         &:hover::after {
             width: 100%;
         }
+    }
+}
+
+@media (max-width: 1150px) {
+    .Header-nav a {
+        font-size: 18px;
     }
 }
 
