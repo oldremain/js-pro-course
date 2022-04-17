@@ -16,19 +16,19 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
 
     const refs = [
         {
-            name: "header.nav.link.about",
+            name: "header.nav.link.home",
             path: "/",
         },
         {
-            name: "header.nav.link.howItWork",
+            name: "header.nav.link.posts",
             path: "/posts",
         },
         {
-            name: "header.nav.link.project",
+            name: "header.nav.link.registration",
             path: "/registration",
         },
         {
-            name: "header.nav.link.whatWeDo",
+            name: "header.nav.link.login",
             path: "/login",
         },
     ];

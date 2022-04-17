@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./Component/Header/Header";
 import HeaderBody from "./Component/HeaderBody/HeaderBody";
 import Posts from "./Component/Posts/Posts";
@@ -17,6 +17,7 @@ const App: React.FC = () => {
                     <Route path="/posts" element={<Posts />} />
                     <Route path="/posts/:id" element={<PostId />} />
                     <Route path="/registration" element={<Registration />} />
+                    <Route path="*" element={<Navigate to={"/"} />} />
                 </Route>
 
                 {/* <Route path="/login" element={<Login />} /> */}

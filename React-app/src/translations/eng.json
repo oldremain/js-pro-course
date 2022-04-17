@@ -1,8 +1,8 @@
 {
-    "header.nav.link.about": "About",
-    "header.nav.link.whatWeDo": "What we do",
-    "header.nav.link.project": "Project",
-    "header.nav.link.howItWork": "How it work with us",
+    "header.nav.link.home": "Home",
+    "header.nav.link.posts": "Posts",
+    "header.nav.link.registration": "Registration",
+    "header.nav.link.login": "Login",
     "header.mainPage.title": "New Automation Tool for Your Home",
     "header.mainPage.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscingelit. Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus elit.",
     "header.mainPage.btn": "See Our Project",
