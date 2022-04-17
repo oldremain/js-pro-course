@@ -1,41 +1,16 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import usePost from "../hooks/usePost";
+import useSinglePost from "../hooks/useSinglePost";
 import Loader from "../Posts/Loader/Loader";
 import Error from "../Posts/Error/Error";
 
-import "./Post.scss";
+import "./PostId.scss";
 import notFoundImage from "../../assets/img/notfound.png";
 
-const Post: React.FC = () => {
+const PostId: React.FC = () => {
     const { id } = useParams();
 
-    const { post, loading, error, setError } = usePost(id);
-
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
-
-    // const fetchData = () => {
-    //     setLoading(true);
-    //     setTimeout(() => {
-    //         fetch(`${URL}${id}`)
-    //             .then((response) => response.json())
-    //             .then((data) => {
-    //                 //const post = data as PostType;
-    //                 setPost(data);
-    //                 console.log(data);
-    //             })
-    //             .catch((error) => {
-    //                 setError({
-    //                     status: true,
-    //                     name: error.name,
-    //                     message: error.message,
-    //                 });
-    //             })
-    //             .finally(() => setLoading(false));
-    //     }, 1000);
-    // };
+    const { post, loading, error, setError } = useSinglePost(id);
 
     const handleError = () => {
         setError({
@@ -71,4 +46,4 @@ const Post: React.FC = () => {
     );
 };
 
-export default Post;
+export default PostId;

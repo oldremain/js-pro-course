@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import PostType from "../../types/PostType";
-import { ErrorType } from "../hooks/usePosts";
+import { ErrorType } from "./usePosts";
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/";
 
-const usePost = (id: string = "1") => {
+const useSinglePost = (id: string = "") => {
     const [post, setPost] = useState<PostType>();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>({
@@ -40,4 +40,4 @@ const usePost = (id: string = "1") => {
     return { post, loading, error, setError };
 };
 
-export default usePost;
+export default useSinglePost;
