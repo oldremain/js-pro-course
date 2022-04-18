@@ -9,12 +9,18 @@ type NavigationPropsType = {
     className: string;
 };
 
+type RefsType = {
+    name: string;
+    path: string;
+    className?: string;
+};
+
 const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
     const animateFrom = { opacity: 0, y: -40 };
     const animateTo = { opacity: 1, y: 0 };
     const transition = { duration: 0.7, delay: 0.2 };
 
-    const refs = [
+    const refs: Array<RefsType> = [
         {
             name: "header.nav.link.home",
             path: "/",
@@ -26,6 +32,7 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
         {
             name: "header.nav.link.registration",
             path: "/registration",
+            className: "_registration",
         },
         {
             name: "header.nav.link.login",
@@ -34,7 +41,6 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
     ];
 
     const { t } = useTranslate();
-    //console.log(lang);
 
     return (
         <nav className={`Header-nav ${className}`}>
@@ -46,8 +52,8 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
                         animate={animateTo}
                         transition={transition}
                     >
-                        <NavLink to={ref.path}>
-                            {t(ref.name)} {/* перевод ссылки */}
+                        <NavLink to={ref.path} className={ref.className}>
+                            {t(ref.name)}
                         </NavLink>
                     </motion.div>
                 );

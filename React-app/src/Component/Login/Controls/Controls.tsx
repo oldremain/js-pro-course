@@ -17,7 +17,7 @@ const Controls: React.FC = () => {
     const { t } = useTranslate();
 
     return (
-        <form action="#" className="Form-body" autoComplete="off">
+        <form className="Form-body" autoComplete="off">
             <FormField
                 autofocus
                 label={t("registration.email")}

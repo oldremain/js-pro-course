@@ -16,9 +16,7 @@ const Header: React.FC = () => {
     };
 
     useEffect(() => {
-        open
-            ? (document.body.style.overflow = "hidden")
-            : (document.body.style.overflow = "");
+        document.body.style.overflow = open ? "hidden" : "";
     }, [open]);
 
     return (
