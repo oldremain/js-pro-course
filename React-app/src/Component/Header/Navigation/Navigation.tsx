@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import useTranslate from "../../hooks/useTranslate";
 
 import "./Navigation.scss";
+import { NavLink } from "react-router-dom";
 
 type NavigationPropsType = {
     className: string;
@@ -15,20 +16,20 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
 
     const refs = [
         {
-            name: "header.nav.link.about",
-            path: "/1",
+            name: "header.nav.link.home",
+            path: "/",
         },
         {
-            name: "header.nav.link.howItWork",
-            path: "/2",
+            name: "header.nav.link.posts",
+            path: "/posts",
         },
         {
-            name: "header.nav.link.project",
-            path: "/3",
+            name: "header.nav.link.registration",
+            path: "/registration",
         },
         {
-            name: "header.nav.link.whatWeDo",
-            path: "/4",
+            name: "header.nav.link.login",
+            path: "/login",
         },
     ];
 
@@ -39,15 +40,16 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
         <nav className={`Header-nav ${className}`}>
             {refs.map((ref) => {
                 return (
-                    <motion.a
+                    <motion.div
+                        key={ref.name}
                         initial={animateFrom}
                         animate={animateTo}
                         transition={transition}
-                        href={ref.path}
-                        key={ref.name}
                     >
-                        {t(ref.name)} {/* перевод ссылки */}
-                    </motion.a>
+                        <NavLink to={ref.path}>
+                            {t(ref.name)} {/* перевод ссылки */}
+                        </NavLink>
+                    </motion.div>
                 );
             })}
         </nav>

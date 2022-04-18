@@ -22,9 +22,11 @@ const Posts: React.FC<PropsType> = () => {
                     <Error name={error.name} message={error.message} />
                 )}
             </div>
-            <div className="Post-count">
-                Total number of posts: <span>{postCount}</span>
-            </div>
+            {!loading && (
+                <div className="Post-count">
+                    Total number of posts: <span>{postCount}</span>
+                </div>
+            )}
         </section>
     );
 };

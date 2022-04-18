@@ -20,12 +20,6 @@ const Controls: React.FC = () => {
         <form action="#" className="Form-body" autoComplete="off">
             <FormField
                 autofocus
-                label={t("registration.name")}
-                values={values}
-                name="name"
-                setValues={setValues}
-            />
-            <FormField
                 label={t("registration.email")}
                 values={values}
                 type="email"
@@ -39,14 +33,7 @@ const Controls: React.FC = () => {
                 name="password"
                 setValues={setValues}
             />
-            <FormField
-                label={t("registration.confirmPassword")}
-                values={values}
-                type="password"
-                name="passwordConfirm"
-                setValues={setValues}
-            />
-            <Button onClick={submitHandler}>{t("registration.submit")}</Button>
+            <Button onClick={submitHandler}>{t("login.submit")}</Button>
         </form>
     );
 };

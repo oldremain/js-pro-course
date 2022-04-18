@@ -4,25 +4,36 @@
     justify-content: flex-end;
     gap: 40px;
 
+    &.desktop li {
+        list-style: none;
+    }
+
     a {
         font-family: "Shadows Into Light", cursive;
         font-size: 20px;
         color: #3e6ead;
         position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background-color: #5e9ef1;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        &:hover {
+            text-shadow: 0px 1px 2px rgb(143, 143, 143);
         }
-        &:hover::after {
-            width: 100%;
+    }
+
+    a[href="/registration"] {
+        background-color: rgb(44, 44, 44);
+        padding: 10px;
+        border-radius: 15px;
+        color: white;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: rgb(65, 65, 65);
+            box-shadow: 0 0 2px gray;
         }
+    }
+
+    a.active {
+        font-weight: bolder;
     }
 }
 
@@ -41,17 +52,22 @@
         flex-direction: column;
         justify-content: start;
         position: absolute;
-        top: 110px;
+        overflow: hidden;
+        top: 80px;
         left: -100%;
         width: 100%;
-        height: calc(100% - 100px);
+        height: 100vh;
         background-color: #3e6ead;
-        z-index: 1000;
+        z-index: 1500;
         padding: 30px 0 0 30px;
         animation: visible 0.3s ease forwards;
 
         a {
             color: white;
+        }
+
+        li {
+            list-style: none;
         }
     }
 }

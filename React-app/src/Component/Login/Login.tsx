@@ -4,15 +4,15 @@ import Controls from "./Controls/Controls";
 import Help from "./Help/Help";
 import useTranslate from "../hooks/useTranslate";
 
-import "./Registration.scss";
+import "./Login.scss";
 
-const Registration: React.FC = () => {
+const Login: React.FC = () => {
     const { t } = useTranslate();
 
     return (
         <section className="Form">
             <div className="container">
-                <FormCard header={t("registration.header")}>
+                <FormCard header={t("login.header")}>
                     <Controls />
                     <Help />
                 </FormCard>
@@ -21,4 +21,4 @@ const Registration: React.FC = () => {
     );
 };
 
-export default Registration;
+export default Login;
