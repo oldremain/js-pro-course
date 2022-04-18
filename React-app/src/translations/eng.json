@@ -1,17 +1,23 @@
 {
     "header.nav.link.home": "Home",
     "header.nav.link.posts": "Posts",
-    "header.nav.link.registration": "Registration",
-    "header.nav.link.login": "Login",
+    "header.nav.link.registration": "Get started",
+    "header.nav.link.login": "Sign in",
     "header.mainPage.title": "New Automation Tool for Your Home",
     "header.mainPage.subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscingelit. Faucibus tristique vulputate ultrices ut mauris tellus at. Posuere sollicitudin odio tellus elit.",
     "header.mainPage.btn": "See Our Project",
-    "registration.header": "Registration",
+    "registration.header": "Join us",
     "registration.name": "Name",
     "registration.email": "Email",
     "registration.password": "Password",
     "registration.confirmPassword": "Confirm Password",
     "registration.submit": "Sign up",
-    "registration.forgotPassword.question": "Forgot your password ?",
-    "registration.resetPassword.link": "Reset password"
+    "registration.account.question": "Already have an account ?",
+    "registration.account.link": "Sign in",
+    "login.header": "Welcome back",
+    "login.email": "Email",
+    "login.password": "Password",
+    "login.submit": "Sign in",
+    "login.forgotPassword.question": "Forgot your password ?",
+    "login.resetPassword.link": "Reset password"
 }

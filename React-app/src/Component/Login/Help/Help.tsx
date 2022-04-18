@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import useTranslate from "../../hooks/useTranslate";
 
 import "./Help.scss";
@@ -9,8 +8,8 @@ const Help: React.FC = () => {
 
     return (
         <div className="Help">
-            <p>{t("registration.account.question")}</p>
-            <Link to="/login">{t("registration.account.link")}</Link>
+            <p>{t("login.forgotPassword.question")}</p>
+            <a href="/">{t("login.resetPassword.link")}</a>
         </div>
     );
 };
