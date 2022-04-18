@@ -5,7 +5,7 @@ import HeaderBody from "./Component/HeaderBody/HeaderBody";
 import Posts from "./Component/Posts/Posts";
 import Registration from "./Component/Registration/Registration";
 import Login from "./Component/Login/Login";
-import PostId from "./Component/PostId/PostId";
+import PostById from "./Component/PostById/PostById";
 
 import "./App.scss";
 
@@ -17,7 +17,7 @@ const App: React.FC = () => {
                     <Route index element={<HeaderBody />} />
                     <Route path="/posts">
                         <Route index element={<Posts />} />
-                        <Route path=":id" element={<PostId />} />
+                        <Route path=":id" element={<PostById />} />
                     </Route>
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/login" element={<Login />} />

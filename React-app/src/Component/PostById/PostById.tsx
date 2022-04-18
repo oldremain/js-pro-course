@@ -5,9 +5,9 @@ import Image from "../PostImage/Image";
 import Loader from "../Posts/Loader/Loader";
 import Error from "../Posts/Error/Error";
 
-import "./PostId.scss";
+import "./PostById.scss";
 
-const PostId: React.FC = () => {
+const PostById: React.FC = () => {
     const { id } = useParams();
 
     const { post, loading, error } = useSinglePost(id);
@@ -32,4 +32,4 @@ const PostId: React.FC = () => {
     );
 };
 
-export default PostId;
+export default PostById;
