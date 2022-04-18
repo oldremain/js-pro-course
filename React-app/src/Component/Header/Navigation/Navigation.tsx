@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import useTranslate from "../../hooks/useTranslate";
 
 import "./Navigation.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type NavigationPropsType = {
     className: string;
@@ -46,9 +46,9 @@ const Navigation: React.FC<NavigationPropsType> = ({ className }) => {
                         animate={animateTo}
                         transition={transition}
                     >
-                        <Link to={ref.path}>
+                        <NavLink to={ref.path}>
                             {t(ref.name)} {/* перевод ссылки */}
-                        </Link>
+                        </NavLink>
                     </motion.div>
                 );
             })}

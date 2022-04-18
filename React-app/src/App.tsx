@@ -15,8 +15,10 @@ const App: React.FC = () => {
             <Routes>
                 <Route path="/" element={<Header />}>
                     <Route index element={<HeaderBody />} />
-                    <Route path="/posts" element={<Posts />} />
-                    <Route path="/posts/:id" element={<PostId />} />
+                    <Route path="/posts">
+                        <Route index element={<Posts />} />
+                        <Route path=":id" element={<PostId />} />
+                    </Route>
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="*" element={<Navigate to={"/"} />} />
