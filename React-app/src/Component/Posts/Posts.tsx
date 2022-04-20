@@ -9,12 +9,12 @@ import "./Posts.scss";
 type PropsType = {};
 
 const Posts: React.FC<PropsType> = () => {
-    const { posts, loading, error, postCount } = usePosts();
+    const { data, loading, error, postCount } = usePosts();
 
     return (
         <section className="Posts">
             <div className="Posts-wrap">
-                {posts.map((post) => (
+                {data.results.map((post) => (
                     <PostsCard key={post.id} data={post} />
                 ))}
                 {loading && <Loader />}
