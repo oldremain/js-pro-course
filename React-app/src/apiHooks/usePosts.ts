@@ -19,8 +19,15 @@ const defValue: ResponseType = {
     results: [],
 };
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=40&offset=0";
+const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
-const usePosts = () => usePostRequest<ResponseType>(defValue, URL);
+const usePosts = (page: number, limit: number) => {
+    const offset = limit * (page - 1);
+
+    const url = `${URL}limit=${limit}&offset=${offset}`;
+    //console.log(url);
+
+    return usePostRequest<ResponseType>(defValue, url);
+};
 
 export default usePosts;

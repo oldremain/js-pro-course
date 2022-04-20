@@ -7,7 +7,6 @@ export type ErrorType = {
 };
 
 const usePostRequest = <T>(defValue: T, url: string) => {
-    const [postCount, setCount] = useState(0);
     const [data, setData] = useState<T>(defValue);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>({
@@ -18,15 +17,16 @@ const usePostRequest = <T>(defValue: T, url: string) => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [url]);
 
     const fetchData = () => {
         setLoading(true);
+        setData(defValue);
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
                 setData(data);
-                setCount(data?.results?.length);
+                console.log(data);
             })
             .catch((error) => {
                 setError({
@@ -38,7 +38,7 @@ const usePostRequest = <T>(defValue: T, url: string) => {
             .finally(() => setLoading(false));
     };
 
-    return { data, loading, error, postCount };
+    return { data, loading, error };
 };
 
 export default usePostRequest;

@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import usePosts from "../../apiHooks/usePosts";
+import PostsFilter from "./PostsFilter";
 import PostsCard from "./Card/PostsCard";
 import Error from "./Error/Error";
 import Loader from "./Loader/Loader";
 
 import "./Posts.scss";
+import PostsFilterType from "./PostsFilterType";
 
 type PropsType = {};
 
 const Posts: React.FC<PropsType> = () => {
-    const { data, loading, error, postCount } = usePosts();
+    const [filter, setFilter] = useState<PostsFilterType>();
+    const { data, loading, error } = usePosts(page, limit);
 
     return (
         <section className="Posts">
+            <PostsFilter count={data.count} page />
+
             <div className="Posts-wrap">
                 {data.results.map((post) => (
                     <PostsCard key={post.id} data={post} />
@@ -24,7 +29,7 @@ const Posts: React.FC<PropsType> = () => {
             </div>
             {!loading && (
                 <div className="Post-count">
-                    Total number of posts: <span>{postCount}</span>
+                    Total number of posts: <span>{data.results.length}</span>
                 </div>
             )}
         </section>
