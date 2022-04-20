@@ -2,6 +2,7 @@ import React from "react";
 import {
     Pagination,
     MenuItem,
+    InputLabel,
     Select,
     SelectChangeEvent,
     FormControl,
@@ -37,27 +38,38 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
     };
 
     const authorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter((prevValue) => ({
-            ...prevValue,
-            author: +e.target.value,
-        }));
+        setFilter((prevValue) => {
+            if (Number.isNaN(+e.target.value)) {
+                return { ...prevValue };
+            } else {
+                return { ...prevValue, author: +e.target.value };
+            }
+        }); //проверка, что не число
     };
 
     const lessonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter((prevValue) => ({
-            ...prevValue,
-            lesson_num: +e.target.value,
-        }));
+        setFilter((prevValue) => {
+            if (Number.isNaN(+e.target.value)) {
+                return { ...prevValue };
+            } else {
+                return { ...prevValue, lesson_num: +e.target.value };
+            }
+        }); //проверка, что не число
     };
 
     return (
         <div className="Posts-controls">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                <InputLabel id="posts-limit">Limit</InputLabel>
                 <Select
+                    labelId="posts-limit"
                     value={filter.limit.toString()}
-                    label="Items per page"
+                    label="Limit"
                     onChange={limitHandler}
                 >
+                    {/* <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem> */}
                     <MenuItem value={10}>Ten</MenuItem>
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
@@ -90,3 +102,16 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
 };
 
 export default PostsFilter;
+
+// if (Number.isNaN(e.target.value)) {
+//     return ({
+//          ...prevValue,
+//      }) else {
+//          return ({
+//              ...prevValue,
+//              author: +e.target.value,
+//          } )
+
+//      }
+//  }
+//  })

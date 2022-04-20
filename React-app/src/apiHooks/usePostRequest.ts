@@ -23,7 +23,13 @@ const usePostRequest = <T>(defValue: T, url: string) => {
         setLoading(true);
         setData(defValue);
         fetch(url)
-            .then((response) => response.json())
+            .then((response) => {
+                if (response.status >= 400) {
+                    return defValue;
+                } else {
+                    return response.json();
+                } //проверка статуса в случае ответа с сервера ошибкой - 404, чтобы не сломалось приложение
+            })
             .then((data) => {
                 setData(data);
                 console.log(data);
