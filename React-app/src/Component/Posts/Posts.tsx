@@ -14,6 +14,7 @@ const Posts: React.FC<PropsType> = () => {
     const [filter, setFilter] = useState<PostsFilterType>({
         page: 1,
         limit: 10,
+        author: 0,
     });
     const { data, loading, error } = usePosts(filter);
 

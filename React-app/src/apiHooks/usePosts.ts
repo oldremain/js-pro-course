@@ -22,11 +22,15 @@ const defValue: ResponseType = {
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
-const usePosts = ({ page, limit }: PostsFilterType) => {
+const usePosts = ({ page, limit, author }: PostsFilterType) => {
     const offset = limit * (page - 1);
 
-    const url = `${URL}limit=${limit}&offset=${offset}`;
+    let url = `${URL}limit=${limit}&offset=${offset}`;
     //console.log(url);
+
+    if (author) {
+        url += `&author=${author}`;
+    }
 
     return usePostRequest<ResponseType>(defValue, url);
 };

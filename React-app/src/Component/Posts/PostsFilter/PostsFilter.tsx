@@ -5,6 +5,7 @@ import {
     Select,
     SelectChangeEvent,
     FormControl,
+    TextField,
 } from "@mui/material";
 
 import "../Posts.scss";
@@ -27,11 +28,18 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
         }));
     };
 
-    const selectHandler = (e: SelectChangeEvent) => {
+    const limitHandler = (e: SelectChangeEvent) => {
         setFilter((prevValue: PostsFilterType) => ({
             ...prevValue,
             page: 1,
             limit: +e.target.value,
+        }));
+    };
+
+    const authorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFilter((prevValue) => ({
+            ...prevValue,
+            author: +e.target.value,
         }));
     };
 
@@ -41,13 +49,20 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 <Select
                     value={filter.limit.toString()}
                     label="Items per page"
-                    onChange={selectHandler}
+                    onChange={limitHandler}
                 >
                     <MenuItem value={10}>Ten</MenuItem>
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
             </FormControl>
+
+            <TextField
+                label="Author"
+                size="small"
+                value={filter.author}
+                onChange={authorHandler}
+            />
 
             <Pagination
                 className="Posts-pagination"
