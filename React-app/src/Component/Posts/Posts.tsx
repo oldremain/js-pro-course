@@ -1,5 +1,5 @@
 import React from "react";
-import usePosts from "../hooks/usePosts";
+import usePosts from "../../apiHooks/usePosts";
 import PostsCard from "./Card/PostsCard";
 import Error from "./Error/Error";
 import Loader from "./Loader/Loader";

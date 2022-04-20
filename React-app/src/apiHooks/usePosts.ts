@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import PostType from "../../types/PostType";
+import PostType from "../types/PostType";
 
 export type ErrorType = {
     status: boolean;
@@ -7,7 +7,7 @@ export type ErrorType = {
     message: string;
 };
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=15&offset=0";
+const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=40&offset=0";
 
 const usePosts = () => {
     const [postCount, setCount] = useState(0);

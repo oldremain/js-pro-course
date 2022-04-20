@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import PostType from "../../types/PostType";
+import PostType from "../types/PostType";
 import { ErrorType } from "./usePosts";
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/";

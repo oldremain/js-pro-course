@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import useSinglePost from "../hooks/useSinglePost";
+import useSinglePost from "../../apiHooks/useSinglePost";
 import Image from "../PostImage/Image";
 import Loader from "../Posts/Loader/Loader";
 import Error from "../Posts/Error/Error";
