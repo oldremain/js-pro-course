@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Pagination,
     MenuItem,
@@ -6,32 +6,40 @@ import {
     SelectChangeEvent,
     FormControl,
 } from "@mui/material";
-import usePosts from "../../apiHooks/usePosts";
 
-import "./Posts.scss";
+import "../Posts.scss";
+import PostsFilterType from "./PostsFilterType";
 
 type PropsType = {
     count: number;
+    filter: PostsFilterType;
+    setFilter: (callback: (v: PostsFilterType) => PostsFilterType) => void;
 };
 
-const PostsFilter: React.FC<PropsType> = ({ count }) => {
+const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
     const paginationHandler = (
-        event: React.ChangeEvent<unknown>,
+        e: React.ChangeEvent<unknown>,
         value: number
     ) => {
-        setPage(value);
+        setFilter((prevValue: PostsFilterType) => ({
+            ...prevValue,
+            page: value,
+        }));
     };
 
     const selectHandler = (e: SelectChangeEvent) => {
-        setPage(1);
-        setLimit(+e.target.value);
+        setFilter((prevValue: PostsFilterType) => ({
+            ...prevValue,
+            page: 1,
+            limit: +e.target.value,
+        }));
     };
 
     return (
-        <div className="mu-controls">
+        <div className="Posts-controls">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <Select
-                    value={limit.toString()}
+                    value={filter.limit.toString()}
                     label="Items per page"
                     onChange={selectHandler}
                 >
@@ -43,8 +51,8 @@ const PostsFilter: React.FC<PropsType> = ({ count }) => {
 
             <Pagination
                 className="Posts-pagination"
-                page={page}
-                count={Math.ceil(count / limit)}
+                page={filter.page}
+                count={Math.ceil(count / filter.limit)}
                 onChange={paginationHandler}
                 color="primary"
             />

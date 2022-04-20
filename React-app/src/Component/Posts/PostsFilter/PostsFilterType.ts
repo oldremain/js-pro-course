@@ -1,6 +1,6 @@
 type PostsFilterType = {
     limit: number;
-    offset: number;
+    page: number;
 };
 
 export default PostsFilterType;

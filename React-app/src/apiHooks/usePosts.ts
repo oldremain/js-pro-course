@@ -1,3 +1,4 @@
+import PostsFilterType from "../Component/Posts/PostsFilter/PostsFilterType";
 import PostType from "../types/PostType";
 import usePostRequest from "./usePostRequest";
 
@@ -21,7 +22,7 @@ const defValue: ResponseType = {
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
-const usePosts = (page: number, limit: number) => {
+const usePosts = ({ page, limit }: PostsFilterType) => {
     const offset = limit * (page - 1);
 
     const url = `${URL}limit=${limit}&offset=${offset}`;

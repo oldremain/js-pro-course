@@ -1,14 +1,11 @@
-.mu-controls {
+.Posts-controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 30px;
     margin-bottom: 40px;
 }
-// .Posts-pagination {
-//     display: inline-block;
-//     // margin: 0 auto 50px;
-// }
 .Posts-wrap {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
