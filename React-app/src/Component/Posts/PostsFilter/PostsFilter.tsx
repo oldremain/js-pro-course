@@ -43,6 +43,13 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
         }));
     };
 
+    const lessonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFilter((prevValue) => ({
+            ...prevValue,
+            lesson_num: +e.target.value,
+        }));
+    };
+
     return (
         <div className="Posts-controls">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -62,6 +69,13 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 size="small"
                 value={filter.author}
                 onChange={authorHandler}
+            />
+
+            <TextField
+                label="Lesson"
+                size="small"
+                value={filter.lesson_num}
+                onChange={lessonHandler}
             />
 
             <Pagination

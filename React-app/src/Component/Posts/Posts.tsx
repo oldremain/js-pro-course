@@ -15,6 +15,7 @@ const Posts: React.FC<PropsType> = () => {
         page: 1,
         limit: 10,
         author: 0,
+        lesson_num: 0,
     });
     const { data, loading, error } = usePosts(filter);
 
