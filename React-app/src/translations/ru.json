@@ -19,5 +19,12 @@
     "login.password": "Пароль",
     "login.submit": "Войти",
     "login.forgotPassword.question": "Забыли пароль ?",
-    "login.resetPassword.link": "Сбросить пароль"
+    "login.resetPassword.link": "Сбросить пароль",
+    "posts.countPerPage": "Постов на странице",
+    "filter.limit": "Лимит",
+    "filter.author": "Автор",
+    "filter.lesson": "Урок",
+    "filter.ordering": "Сортировка",
+    "filter.ordering.author": "Автор",
+    "filter.ordering.lesson": "Урок"
 }

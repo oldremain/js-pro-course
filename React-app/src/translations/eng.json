@@ -19,5 +19,12 @@
     "login.password": "Password",
     "login.submit": "Sign in",
     "login.forgotPassword.question": "Forgot your password ?",
-    "login.resetPassword.link": "Reset password"
+    "login.resetPassword.link": "Reset password",
+    "posts.countPerPage": "Posts per page",
+    "filter.limit": "Limit",
+    "filter.author": "Author",
+    "filter.lesson": "Lesson",
+    "filter.ordering": "Ordering",
+    "filter.ordering.author": "Author",
+    "filter.ordering.lesson": "Lesson"
 }

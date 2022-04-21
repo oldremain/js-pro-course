@@ -1,4 +1,5 @@
 import React from "react";
+import useTranslate from "../../hooks/useTranslate";
 import {
     Pagination,
     MenuItem,
@@ -8,9 +9,9 @@ import {
     FormControl,
     TextField,
 } from "@mui/material";
+import PostsFilterType from "./PostsFilterType";
 
 import "../Posts.scss";
-import PostsFilterType from "./PostsFilterType";
 
 type PropsType = {
     count: number;
@@ -19,6 +20,8 @@ type PropsType = {
 };
 
 const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
+    const { t } = useTranslate();
+
     const paginationHandler = (
         e: React.ChangeEvent<unknown>,
         value: number
@@ -68,7 +71,7 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
     return (
         <div className="Posts-controls">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                <InputLabel id="posts-limit">Limit</InputLabel>
+                <InputLabel id="posts-limit">{t("filter.limit")}</InputLabel>
                 <Select
                     labelId="posts-limit"
                     value={filter.limit.toString()}
@@ -78,28 +81,30 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                     {/* <MenuItem value="">
                         <em>None</em>
                     </MenuItem> */}
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={20}>20</MenuItem>
+                    <MenuItem value={30}>30</MenuItem>
                 </Select>
             </FormControl>
 
             <TextField
-                label="Author"
+                label={t("filter.author")}
                 size="small"
                 value={filter.author}
                 onChange={authorHandler}
             />
 
             <TextField
-                label="Lesson"
+                label={t("filter.lesson")}
                 size="small"
                 value={filter.lesson_num}
                 onChange={lessonHandler}
             />
 
-            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                <InputLabel id="posts-ordering">Ordering</InputLabel>
+            <FormControl sx={{ m: 1, minWidth: 220 }} size="small">
+                <InputLabel id="posts-ordering">
+                    {t("filter.ordering")}
+                </InputLabel>
                 <Select
                     labelId="posts-ordering"
                     value={filter.ordering}
@@ -109,10 +114,18 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={"author"}>🠕 Author</MenuItem>
-                    <MenuItem value={"-author"}>🠗 Author</MenuItem>
-                    <MenuItem value={"lesson_num"}>🠕 Lesson</MenuItem>
-                    <MenuItem value={"-lesson_num"}>🠗 Lesson</MenuItem>
+                    <MenuItem value={"author"}>
+                        🠕 {t("filter.ordering.author")}
+                    </MenuItem>
+                    <MenuItem value={"-author"}>
+                        🠗 {t("filter.ordering.author")}
+                    </MenuItem>
+                    <MenuItem value={"lesson_num"}>
+                        🠕 {t("filter.ordering.lesson")}
+                    </MenuItem>
+                    <MenuItem value={"-lesson_num"}>
+                        🠗 {t("filter.ordering.lesson")}
+                    </MenuItem>
                 </Select>
             </FormControl>
 
