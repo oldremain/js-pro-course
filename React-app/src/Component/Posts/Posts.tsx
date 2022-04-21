@@ -17,6 +17,7 @@ const Posts: React.FC<PropsType> = () => {
         author: 0,
         lesson_num: 0,
     });
+
     const { data, loading, error } = usePosts(filter);
 
     return (

@@ -57,6 +57,14 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
         }); //проверка, что не число
     };
 
+    const orderingHandler = (e: SelectChangeEvent) => {
+        setFilter((prevValue: PostsFilterType) => ({
+            ...prevValue,
+            page: 1,
+            ordering: e.target.value,
+        }));
+    };
+
     return (
         <div className="Posts-controls">
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -90,6 +98,24 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 onChange={lessonHandler}
             />
 
+            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                <InputLabel id="posts-ordering">Ordering</InputLabel>
+                <Select
+                    labelId="posts-ordering"
+                    value={filter.ordering}
+                    label="Ordering"
+                    onChange={orderingHandler}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"author"}>🠕 Author</MenuItem>
+                    <MenuItem value={"-author"}>🠗 Author</MenuItem>
+                    <MenuItem value={"lesson_num"}>🠕 Lesson</MenuItem>
+                    <MenuItem value={"-lesson_num"}>🠗 Lesson</MenuItem>
+                </Select>
+            </FormControl>
+
             <Pagination
                 className="Posts-pagination"
                 page={filter.page}
@@ -102,16 +128,3 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
 };
 
 export default PostsFilter;
-
-// if (Number.isNaN(e.target.value)) {
-//     return ({
-//          ...prevValue,
-//      }) else {
-//          return ({
-//              ...prevValue,
-//              author: +e.target.value,
-//          } )
-
-//      }
-//  }
-//  })

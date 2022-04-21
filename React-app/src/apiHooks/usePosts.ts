@@ -22,7 +22,13 @@ const defValue: ResponseType = {
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
-const usePosts = ({ page, limit, author, lesson_num }: PostsFilterType) => {
+const usePosts = ({
+    page,
+    limit,
+    author,
+    lesson_num,
+    ordering,
+}: PostsFilterType) => {
     const offset = limit * (page - 1);
 
     let url = `${URL}limit=${limit}&offset=${offset}`;
@@ -34,6 +40,10 @@ const usePosts = ({ page, limit, author, lesson_num }: PostsFilterType) => {
 
     if (lesson_num) {
         url += `&lesson_num=${lesson_num}`;
+    }
+
+    if (ordering) {
+        url += `&ordering=${ordering}`;
     }
 
     return usePostRequest<ResponseType>(defValue, url);
