@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PostType from "../../types/PostType";
 
 export type ErrorType = {
     status: boolean;
@@ -7,11 +6,8 @@ export type ErrorType = {
     message: string;
 };
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/?limit=15&offset=0";
-
-const usePosts = () => {
-    const [postCount, setCount] = useState(0);
-    const [posts, setPosts] = useState<PostType[]>([]);
+const usePostRequest = <T>(defValue: T, url: string) => {
+    const [data, setData] = useState<T>(defValue);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<ErrorType>({
         status: false,
@@ -21,15 +17,22 @@ const usePosts = () => {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [url]);
 
     const fetchData = () => {
         setLoading(true);
-        fetch(URL)
-            .then((response) => response.json())
+        setData(defValue);
+        fetch(url)
+            .then((response) => {
+                if (response.status >= 400) {
+                    return defValue;
+                } else {
+                    return response.json();
+                } //проверка статуса в случае ответа с сервера ошибкой - 404, чтобы не сломалось приложение
+            })
             .then((data) => {
-                setPosts(data.results);
-                setCount(data.results.length);
+                setData(data);
+                console.log(data);
             })
             .catch((error) => {
                 setError({
@@ -41,7 +44,7 @@ const usePosts = () => {
             .finally(() => setLoading(false));
     };
 
-    return { posts, loading, error, postCount };
+    return { data, loading, error };
 };
 
-export default usePosts;
+export default usePostRequest;
