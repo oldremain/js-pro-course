@@ -28,6 +28,12 @@ const Posts: React.FC<PropsType> = () => {
                 setFilter={setFilter}
             />
 
+            {!loading && (
+                <div className="Post-count">
+                    Posts per page: <span>{data.results.length}</span>
+                </div>
+            )}
+
             <div className="Posts-wrap">
                 {data.results.map((post) => (
                     <PostsCard key={post.id} data={post} />
@@ -38,12 +44,6 @@ const Posts: React.FC<PropsType> = () => {
                     <Error name={error.name} message={error.message} />
                 )}
             </div>
-
-            {!loading && (
-                <div className="Post-count">
-                    Total number of posts: <span>{data.results.length}</span>
-                </div>
-            )}
         </section>
     );
 };
