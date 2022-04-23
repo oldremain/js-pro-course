@@ -4,8 +4,6 @@ import FormButton from "../../UI/FormButton/FormButton";
 import FormValuesType from "../../../types/FormValuesType";
 import useTranslate from "../../hooks/useTranslate";
 
-import "./Controls.scss";
-
 const Controls: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
 

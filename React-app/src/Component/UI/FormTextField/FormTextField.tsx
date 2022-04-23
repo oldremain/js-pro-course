@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import FormValuesType from "../../../types/FormValuesType";
+import TextField from "../TextField/TextField";
 
 import "./FormTextField.scss";
 
@@ -15,38 +16,19 @@ type PropsType = {
 };
 
 const FormTextField: React.FC<PropsType> = ({
-    autofocus,
-    label,
-    type = "text",
     name,
     values,
     setValues,
+    ...props
 }) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-        if (autofocus) {
-            inputRef.current?.focus();
-        }
-        //console.log(inputRef.current);
-    }, []);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const setValue = (value: string) => {
         setValues((prev) => {
-            return { ...prev, [name]: e.target.value };
+            return { ...prev, [name]: value };
         });
     };
 
     return (
-        <label>
-            {label}
-            <input
-                ref={inputRef}
-                type={type}
-                value={values[name] || ""}
-                onChange={handleChange}
-            />
-        </label>
+        <TextField {...props} value={values[name] || ""} setValue={setValue} />
     );
 };
 

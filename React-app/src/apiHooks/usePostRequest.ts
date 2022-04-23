@@ -4,6 +4,7 @@ export type ErrorType = {
     status: boolean;
     name: string;
     message: string;
+    isVisible: boolean;
 };
 
 const usePostRequest = <T>(defValue: T, url: string) => {
@@ -13,6 +14,7 @@ const usePostRequest = <T>(defValue: T, url: string) => {
         status: false,
         name: "",
         message: "",
+        isVisible: false,
     });
 
     useEffect(() => {
@@ -24,11 +26,17 @@ const usePostRequest = <T>(defValue: T, url: string) => {
         setData(defValue);
         fetch(url)
             .then((response) => {
-                if (response.status >= 400) {
-                    return defValue;
-                } else {
+                if (response.ok) {
+                    setError({
+                        status: false,
+                        name: "",
+                        message: "",
+                        isVisible: false,
+                    });
                     return response.json();
-                } //проверка статуса в случае ответа с сервера ошибкой - 404, чтобы не сломалось приложение
+                } else {
+                    throw new Error(response.statusText);
+                }
             })
             .then((data) => {
                 setData(data);
@@ -39,12 +47,13 @@ const usePostRequest = <T>(defValue: T, url: string) => {
                     status: true,
                     name: error.name,
                     message: error.message,
+                    isVisible: true,
                 });
             })
             .finally(() => setLoading(false));
     };
 
-    return { data, loading, error };
+    return { data, loading, error, setError };
 };
 
 export default usePostRequest;

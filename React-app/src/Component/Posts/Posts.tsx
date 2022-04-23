@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import useTranslate from "../hooks/useTranslate";
 import PostsFilter from "./PostsFilter/PostsFilter";
-import PostsFilterType from "./PostsFilter/PostsFilterType";
+import { PostsFilterType } from "./PostsFilter/PostsFilterType";
 import PostsCard from "./Card/PostsCard";
 import Error from "./Error/Error";
 import Loader from "./Loader/Loader";
@@ -14,13 +14,12 @@ type PropsType = {};
 const Posts: React.FC<PropsType> = () => {
     const { t } = useTranslate();
     const [filter, setFilter] = useState<PostsFilterType>({
-        page: 1,
         limit: 10,
-        author: 0,
-        lesson_num: 0,
+        page: 1,
+        ordering: "",
     });
 
-    const { data, loading, error } = usePosts(filter);
+    const { data, loading, error, setError } = usePosts(filter);
 
     return (
         <section className="Posts">
@@ -32,8 +31,8 @@ const Posts: React.FC<PropsType> = () => {
 
             {!loading && (
                 <div className="Post-count">
-                    {t("posts.countPerPage")}:{" "}
-                    <span>{data.results.length}</span>
+                    {t("posts.countPerPage")}:
+                    <span> {data.results.length}</span>
                 </div>
             )}
 
@@ -44,7 +43,12 @@ const Posts: React.FC<PropsType> = () => {
 
                 {loading && <Loader />}
                 {error.status && (
-                    <Error name={error.name} message={error.message} />
+                    <Error
+                        isVisible={error.isVisible}
+                        setError={setError}
+                        name={error.name}
+                        message={error.message}
+                    />
                 )}
             </div>
         </section>

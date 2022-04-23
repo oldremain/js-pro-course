@@ -4,8 +4,6 @@ import Controls from "./Controls/Controls";
 import Help from "../UI/FormHelp/FomHelp";
 import useTranslate from "../hooks/useTranslate";
 
-import "./Login.scss";
-
 const Login: React.FC = () => {
     const { t } = useTranslate();
 

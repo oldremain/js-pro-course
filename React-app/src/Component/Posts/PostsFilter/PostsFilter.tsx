@@ -9,7 +9,7 @@ import {
     FormControl,
     // TextField,
 } from "@mui/material";
-import PostsFilterType from "./PostsFilterType";
+import { PostsFilterType, PostsOrder } from "./PostsFilterType";
 import TextField from "../../UI/TextField/TextField";
 
 import "../Posts.scss";
@@ -23,17 +23,14 @@ type PropsType = {
 const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
     const { t } = useTranslate();
 
-    const paginationHandler = (
-        e: React.ChangeEvent<unknown>,
-        value: number
-    ) => {
+    const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {
         setFilter((prevValue: PostsFilterType) => ({
             ...prevValue,
             page: value,
         }));
     };
 
-    const limitHandler = (e: SelectChangeEvent) => {
+    const handleChangeLimit = (e: SelectChangeEvent) => {
         setFilter((prevValue: PostsFilterType) => ({
             ...prevValue,
             page: 1,
@@ -41,31 +38,37 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
         }));
     };
 
-    const authorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter((prevValue) => {
-            if (Number.isNaN(+e.target.value)) {
-                return { ...prevValue };
-            } else {
-                return { ...prevValue, author: +e.target.value };
-            }
-        }); //проверка, что не число
+    const setAuthor = (value: string) => {
+        if (Number.isNaN(+value)) {
+            return;
+        }
+
+        const author = +value > 0 ? +value : undefined;
+
+        setFilter((prevValue) => ({
+            ...prevValue,
+            author,
+        }));
     };
 
-    const lessonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter((prevValue) => {
-            if (Number.isNaN(+e.target.value)) {
-                return { ...prevValue };
-            } else {
-                return { ...prevValue, lesson_num: +e.target.value };
-            }
-        }); //проверка, что не число
+    const setLesson = (value: string) => {
+        if (Number.isNaN(+value)) {
+            return;
+        }
+
+        const lesson_num = +value > 0 ? +value : undefined;
+
+        setFilter((prevValue) => ({
+            ...prevValue,
+            lesson_num,
+        }));
     };
 
-    const orderingHandler = (e: SelectChangeEvent) => {
+    const handleChangeOrder = (e: SelectChangeEvent) => {
         setFilter((prevValue: PostsFilterType) => ({
             ...prevValue,
             page: 1,
-            ordering: e.target.value,
+            ordering: e.target.value as PostsOrder,
         }));
     };
 
@@ -77,18 +80,69 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                     labelId="posts-limit"
                     value={filter.limit.toString()}
                     label="Limit"
-                    onChange={limitHandler}
+                    onChange={handleChangeLimit}
                 >
-                    {/* <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem> */}
                     <MenuItem value={10}>10</MenuItem>
                     <MenuItem value={20}>20</MenuItem>
                     <MenuItem value={30}>30</MenuItem>
                 </Select>
             </FormControl>
 
-            {/* <TextField
+            <TextField
+                value={filter.author?.toString()}
+                setValue={setAuthor}
+                placeholder="Author"
+            />
+
+            <TextField
+                value={filter.lesson_num?.toString()}
+                setValue={setLesson}
+                placeholder="Lesson"
+            />
+
+            <FormControl sx={{ m: 1, minWidth: 220 }} size="small">
+                <InputLabel id="posts-ordering">
+                    {t("filter.ordering")}
+                </InputLabel>
+                <Select
+                    labelId="posts-ordering"
+                    value={filter.ordering}
+                    label="Ordering"
+                    onChange={handleChangeOrder}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={PostsOrder.authorAsc}>
+                        ↑ {t("filter.ordering.author")}
+                    </MenuItem>
+                    <MenuItem value={PostsOrder.authorDesc}>
+                        ↓ {t("filter.ordering.author")}
+                    </MenuItem>
+                    <MenuItem value={PostsOrder.lessonAsc}>
+                        ↑ {t("filter.ordering.lesson")}
+                    </MenuItem>
+                    <MenuItem value={PostsOrder.lessonDesc}>
+                        ↓ {t("filter.ordering.lesson")}
+                    </MenuItem>
+                </Select>
+            </FormControl>
+
+            <Pagination
+                className="Posts-pagination"
+                page={filter.page}
+                count={Math.ceil(count / filter.limit)}
+                onChange={handleChangePage}
+                color="primary"
+            />
+        </div>
+    );
+};
+
+export default PostsFilter;
+
+{
+    /* <TextField
                 label={t("filter.author")}
                 size="small"
                 value={filter.author}
@@ -100,50 +154,25 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 size="small"
                 value={filter.lesson_num}
                 onChange={lessonHandler}
-            /> */}
+            /> */
+}
 
-            <FormControl sx={{ m: 1, minWidth: 220 }} size="small">
-                <InputLabel id="posts-ordering">
-                    {t("filter.ordering")}
-                </InputLabel>
-                <Select
-                    labelId="posts-ordering"
-                    value={filter.ordering}
-                    label="Ordering"
-                    onChange={orderingHandler}
-                >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={"author"}>
-                        ↑ {t("filter.ordering.author")}
-                    </MenuItem>
-                    <MenuItem value={"-author"}>
-                        ↓ {t("filter.ordering.author")}
-                    </MenuItem>
-                    <MenuItem value={"lesson_num"}>
-                        ↑ {t("filter.ordering.lesson")}
-                    </MenuItem>
-                    <MenuItem value={"-lesson_num"}>
-                        ↓ {t("filter.ordering.lesson")}
-                    </MenuItem>
-                </Select>
-            </FormControl>
+// const authorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setFilter((prevValue) => {
+//         if (Number.isNaN(+e.target.value)) {
+//             return { ...prevValue };
+//         } else {
+//             return { ...prevValue, author: +e.target.value };
+//         }
+//     }); //проверка, что не число
+// };
 
-            <TextField
-                value=""
-                setValue={(value) => console.log(value)}
-                placeholder="author"
-            />
-            <Pagination
-                className="Posts-pagination"
-                page={filter.page}
-                count={Math.ceil(count / filter.limit)}
-                onChange={paginationHandler}
-                color="primary"
-            />
-        </div>
-    );
-};
-
-export default PostsFilter;
+// const lessonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setFilter((prevValue) => {
+//         if (Number.isNaN(+e.target.value)) {
+//             return { ...prevValue };
+//         } else {
+//             return { ...prevValue, lesson_num: +e.target.value };
+//         }
+//     }); //проверка, что не число
+// };

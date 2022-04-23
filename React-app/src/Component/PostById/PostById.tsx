@@ -10,12 +10,19 @@ import "./PostById.scss";
 const PostById: React.FC = () => {
     const { id } = useParams();
 
-    const { data, loading, error } = usePostById(id);
+    const { data, loading, error, setError } = usePostById(id);
 
     if (loading) {
         return <Loader />;
     } else if (error.status) {
-        return <Error name={error.name} message={error.message} />;
+        return (
+            <Error
+                setError={setError}
+                isVisible={error.isVisible}
+                name={error.name}
+                message={error.message}
+            />
+        );
     }
 
     if (!data) {

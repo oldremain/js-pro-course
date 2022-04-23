@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
+import React from "react";
+import { ErrorType } from "../../../apiHooks/usePostRequest";
 
-import './Error.scss';
+import "./Error.scss";
 
 type PropsType = {
-  name: string;
-  message: string;
+    name: string;
+    message: string;
+    isVisible: boolean;
+    setError: (callback: (v: ErrorType) => ErrorType) => void;
 };
 
-const Error: React.FC<PropsType> = (props) => {
-  const [visible, setVisible] = useState(true);
-
-  return (
-    <>
-      <div className="Error" style={{ display: visible ? 'flex' : 'none' }}>
-        <div className="Error-title">{props.name}</div>
-        <div className="Error-text">{props.message}</div>
-        <button
-          className="Error-btn"
-          onClick={() => {
-            setVisible((prevState) => !prevState);
-          }}
-        >
-          Ok
-        </button>
-      </div>
-    </>
-  );
+const Error: React.FC<PropsType> = ({ isVisible, setError, name, message }) => {
+    return (
+        <>
+            <div
+                className="Error"
+                style={{ display: isVisible ? "flex" : "none" }}
+            >
+                <div className="Error-title">{name}</div>
+                <div className="Error-text">{message}</div>
+                <button
+                    className="Error-btn"
+                    onClick={() => {
+                        setError((prevValue) => ({
+                            ...prevValue,
+                            isVisible: false,
+                        }));
+                    }}
+                >
+                    Ok
+                </button>
+            </div>
+        </>
+    );
 };
 
 export default Error;

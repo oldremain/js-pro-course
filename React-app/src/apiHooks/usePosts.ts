@@ -1,4 +1,4 @@
-import PostsFilterType from "../Component/Posts/PostsFilter/PostsFilterType";
+import { PostsFilterType } from "../Component/Posts/PostsFilter/PostsFilterType";
 import PostType from "../types/PostType";
 import usePostRequest from "./usePostRequest";
 
@@ -23,8 +23,8 @@ const defValue: ResponseType = {
 const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
 const usePosts = ({
-    page,
     limit,
+    page,
     author,
     lesson_num,
     ordering,
