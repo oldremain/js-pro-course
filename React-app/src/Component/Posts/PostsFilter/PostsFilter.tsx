@@ -115,16 +115,16 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                         <em>None</em>
                     </MenuItem>
                     <MenuItem value={"author"}>
-                        🠕 {t("filter.ordering.author")}
+                        ↑ {t("filter.ordering.author")}
                     </MenuItem>
                     <MenuItem value={"-author"}>
-                        🠗 {t("filter.ordering.author")}
+                        ↓ {t("filter.ordering.author")}
                     </MenuItem>
                     <MenuItem value={"lesson_num"}>
-                        🠕 {t("filter.ordering.lesson")}
+                        ↑ {t("filter.ordering.lesson")}
                     </MenuItem>
                     <MenuItem value={"-lesson_num"}>
-                        🠗 {t("filter.ordering.lesson")}
+                        ↓ {t("filter.ordering.lesson")}
                     </MenuItem>
                 </Select>
             </FormControl>
