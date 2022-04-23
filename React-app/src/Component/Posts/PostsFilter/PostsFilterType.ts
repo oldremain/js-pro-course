@@ -1,7 +1,7 @@
 type PostsFilterType = {
     limit: number;
     page: number;
-    author: number;
+    author?: number;
     lesson_num: number;
     ordering?: string;
 };

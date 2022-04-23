@@ -1,7 +1,7 @@
 import React from "react";
 import FormCard from "../UI/FormCard/FormCard";
 import Controls from "./Controls/Controls";
-import Help from "./Help/Help";
+import Help from "../UI/FormHelp/FomHelp";
 import useTranslate from "../hooks/useTranslate";
 
 import "./Login.scss";
@@ -14,7 +14,11 @@ const Login: React.FC = () => {
             <div className="container">
                 <FormCard header={t("login.header")}>
                     <Controls />
-                    <Help />
+                    <Help
+                        question={t("login.forgotPassword.question")}
+                        linkText={t("login.resetPassword.link")}
+                        path={"/"}
+                    />
                 </FormCard>
             </div>
         </section>

@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./Button.scss";
+import "./FormButton.scss";
 
 type PropsType = {
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Button: React.FC<PropsType> = ({ onClick, children }) => {
+const FormButton: React.FC<PropsType> = ({ onClick, children }) => {
     return (
         <button className="Form-btn" onClick={onClick}>
             {children}
@@ -14,4 +14,4 @@ const Button: React.FC<PropsType> = ({ onClick, children }) => {
     );
 };
 
-export default Button;
+export default FormButton;

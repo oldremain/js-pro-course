@@ -1,0 +1,17 @@
+label {
+    width: 250px;
+    color: #252525;
+    opacity: 0.8;
+}
+input {
+    width: 100%;
+    display: block;
+    border: 2px solid rgb(100, 116, 219);
+    background-color: rgba(188, 217, 241, 0.2);
+    border-radius: 20px;
+    padding: 10px;
+
+    &:focus {
+        border: 2px solid darken(rgb(100, 116, 219), 20%);
+    }
+}

@@ -7,9 +7,10 @@ import {
     Select,
     SelectChangeEvent,
     FormControl,
-    TextField,
+    // TextField,
 } from "@mui/material";
 import PostsFilterType from "./PostsFilterType";
+import TextField from "../../UI/TextField/TextField";
 
 import "../Posts.scss";
 
@@ -87,7 +88,7 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 </Select>
             </FormControl>
 
-            <TextField
+            {/* <TextField
                 label={t("filter.author")}
                 size="small"
                 value={filter.author}
@@ -99,7 +100,7 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 size="small"
                 value={filter.lesson_num}
                 onChange={lessonHandler}
-            />
+            /> */}
 
             <FormControl sx={{ m: 1, minWidth: 220 }} size="small">
                 <InputLabel id="posts-ordering">
@@ -129,6 +130,11 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 </Select>
             </FormControl>
 
+            <TextField
+                value=""
+                setValue={(value) => console.log(value)}
+                placeholder="author"
+            />
             <Pagination
                 className="Posts-pagination"
                 page={filter.page}
