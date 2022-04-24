@@ -19,7 +19,14 @@ export const PostsFilterReducer = (
         case PostsFilterActionTypes.SET_PAGE_TYPE:
             return { ...state, page: action.payload };
         case PostsFilterActionTypes.SET_LIMIT_TYPE:
-            return { ...state, page: 1, limit: action.payload };
+            return {
+                ...state,
+                page: 1,
+                author: undefined,
+                lesson_num: undefined,
+                title: "",
+                limit: action.payload,
+            };
         case PostsFilterActionTypes.SET_ORDER_TYPE:
             return { ...state, page: 1, ordering: action.payload };
         case PostsFilterActionTypes.SET_AUTHOR_TYPE: {
