@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 export type ErrorType = {
@@ -24,25 +25,20 @@ const usePostRequest = <T>(defValue: T, url: string) => {
     const fetchData = () => {
         setLoading(true);
         setData(defValue);
-        fetch(url)
+        axios
+            .get(url)
             .then((response) => {
-                if (response.ok) {
-                    setError({
-                        status: false,
-                        name: "",
-                        message: "",
-                        isVisible: false,
-                    });
-                    return response.json();
-                } else {
-                    throw new Error(response.statusText);
-                }
-            })
-            .then((data) => {
-                setData(data);
-                console.log(data);
+                // console.log(response.data);
+                setError({
+                    status: false,
+                    name: "",
+                    message: "",
+                    isVisible: false,
+                });
+                setData(response.data as T);
             })
             .catch((error) => {
+                // console.log(error);
                 setError({
                     status: true,
                     name: error.name,
@@ -52,7 +48,6 @@ const usePostRequest = <T>(defValue: T, url: string) => {
             })
             .finally(() => setLoading(false));
     };
-
     return { data, loading, error, setError };
 };
 
