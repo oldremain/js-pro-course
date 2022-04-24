@@ -24,6 +24,7 @@
     "filter.limit": "Лимит",
     "filter.author": "Автор",
     "filter.lesson": "Урок",
+    "filter.title": "Заголовок",
     "filter.ordering": "Сортировка",
     "filter.ordering.author": "Автор",
     "filter.ordering.lesson": "Урок"

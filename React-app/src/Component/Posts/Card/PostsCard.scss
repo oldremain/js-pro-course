@@ -19,14 +19,14 @@
         transform: translateY(5px);
     }
 
-    & .Title {
+    &.Title {
         font-weight: bolder;
         font-size: 20px;
         line-height: 150%;
         color: #1f3f68;
     }
 
-    & .Text {
+    &.Text {
         font-size: 16px;
         line-height: 162%;
         color: #1f3f68;
@@ -37,7 +37,7 @@
         overflow: hidden;
     }
 
-    & .Date {
+    &.Date {
         font-size: 14px;
         line-height: 214%;
         color: #5a98d0;

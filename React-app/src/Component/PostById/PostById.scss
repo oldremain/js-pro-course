@@ -1,28 +1,26 @@
-.Post-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 30px;
-    background: #ffffff;
-    box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
-    border-radius: 10px;
-    width: 300px;
-    transition: all 0.3s ease;
-
-    & > * {
-        letter-spacing: 0.05em;
+.Card-wrap {
+    &.Card-wrap__post-id {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px;
+        background: #ffffff;
+        box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
+        border-radius: 10px;
+        width: 300px;
+        transition: all 0.3s ease;
     }
 
     &:hover {
         box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.3);
     }
 
-    & .Image {
+    &.Image {
         width: auto;
         height: 200px;
         margin-bottom: auto;
@@ -33,30 +31,5 @@
             object-fit: cover;
             border-radius: 10px;
         }
-    }
-
-    & .Title {
-        font-weight: bolder;
-        font-size: 20px;
-        line-height: 150%;
-        color: #1f3f68;
-    }
-
-    & .Text {
-        font-size: 16px;
-        line-height: 162%;
-        color: #1f3f68;
-        opacity: 0.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; // количество строк
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    & .Date {
-        font-size: 14px;
-        line-height: 214%;
-        color: #5a98d0;
-        font-weight: bolder;
     }
 }

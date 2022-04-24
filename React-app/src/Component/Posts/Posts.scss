@@ -13,13 +13,6 @@
     position: relative;
 }
 
-@media (max-width: 669px) {
-    .Posts-wrap {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
-        justify-content: center;
-    }
-}
-
 .Post-count {
     max-width: 300px;
     text-align: center;
@@ -32,5 +25,16 @@
 
     & span {
         font-weight: bolder;
+    }
+}
+
+@media (max-width: 669px) {
+    .Posts-wrap {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
+        justify-content: center;
+    }
+
+    .Post-count {
+        margin: 30px auto;
     }
 }

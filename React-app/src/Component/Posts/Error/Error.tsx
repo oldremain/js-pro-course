@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorType } from "../../../apiHooks/usePostRequest";
+import PostErrorType from "../../../types/PostErrorType";
 
 import "./Error.scss";
 
@@ -7,7 +7,7 @@ type PropsType = {
     name: string;
     message: string;
     isVisible: boolean;
-    setError: (callback: (v: ErrorType) => ErrorType) => void;
+    setError: (callback: (v: PostErrorType) => PostErrorType) => void;
 };
 
 const Error: React.FC<PropsType> = ({ isVisible, setError, name, message }) => {

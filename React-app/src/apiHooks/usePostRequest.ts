@@ -1,17 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
-export type ErrorType = {
-    status: boolean;
-    name: string;
-    message: string;
-    isVisible: boolean;
-};
+import PostErrorType from "../types/PostErrorType";
 
 const usePostRequest = <T>(defValue: T, url: string) => {
     const [data, setData] = useState<T>(defValue);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<ErrorType>({
+    const [error, setError] = useState<PostErrorType>({
         status: false,
         name: "",
         message: "",

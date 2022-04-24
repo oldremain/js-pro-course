@@ -30,7 +30,7 @@ const PostById: React.FC = () => {
     }
 
     return (
-        <Link to={`/posts/${id}`} className="Post-container">
+        <Link to={`/posts/${id}`} className="Card-wrap Card-wrap__post-id">
             <Image data={data} />
             <div className="Title">{data.title}</div>
             <div className="Text">{data.text}</div>

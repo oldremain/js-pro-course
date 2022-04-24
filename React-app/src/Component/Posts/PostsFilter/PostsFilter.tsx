@@ -77,19 +77,19 @@ const PostsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
             <TextField
                 value={state.author?.toString()}
                 setValue={updateAuthor}
-                placeholder="Author"
+                placeholder={t("filter.author")}
             />
 
             <TextField
                 value={state.lesson_num?.toString()}
                 setValue={updateLesson}
-                placeholder="Lesson"
+                placeholder={t("filter.lesson")}
             />
 
             <TextField
                 value={state.title?.toString()}
                 setValue={updateTitle}
-                placeholder="Title"
+                placeholder={t("filter.title")}
             />
 
             <FormControl sx={{ m: 1, minWidth: 220 }} size="small">

@@ -2,12 +2,6 @@ import { PostsFilterType } from "../Component/Posts/PostsFilter/PostsFilterTypes
 import PostType from "../types/PostType";
 import usePostRequest from "./usePostRequest";
 
-export type ErrorType = {
-    status: boolean;
-    name: string;
-    message: string;
-};
-
 type ResponseType = {
     count: number;
     next?: string;

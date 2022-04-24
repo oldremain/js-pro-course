@@ -24,6 +24,7 @@
     "filter.limit": "Limit",
     "filter.author": "Author",
     "filter.lesson": "Lesson",
+    "filter.title": "Title",
     "filter.ordering": "Ordering",
     "filter.ordering.author": "Author",
     "filter.ordering.lesson": "Lesson"
