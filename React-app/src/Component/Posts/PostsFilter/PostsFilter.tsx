@@ -7,69 +7,55 @@ import {
     Select,
     SelectChangeEvent,
     FormControl,
-    // TextField,
 } from "@mui/material";
-import { PostsFilterType, PostsOrder } from "./PostsFilterType";
 import TextField from "../../UI/TextField/TextField";
+import {
+    PostsFilterAction,
+    PostsFilterType,
+    PostsOrder,
+} from "./PostsFilterTypes";
+import {
+    setAuthor,
+    setLesson,
+    setLimit,
+    setOrder,
+    setPage,
+    setTitle,
+} from "./PostsFilterActionCreators";
 
 import "../Posts.scss";
 
 type PropsType = {
     count: number;
-    filter: PostsFilterType;
-    setFilter: (callback: (v: PostsFilterType) => PostsFilterType) => void;
+    state: PostsFilterType;
+    dispatch: (value: PostsFilterAction) => void;
 };
 
-const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
+const PostsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
     const { t } = useTranslate();
 
     const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {
-        setFilter((prevValue: PostsFilterType) => ({
-            ...prevValue,
-            page: value,
-        }));
+        dispatch(setPage(value));
     };
 
     const handleChangeLimit = (e: SelectChangeEvent) => {
-        setFilter((prevValue: PostsFilterType) => ({
-            ...prevValue,
-            page: 1,
-            limit: +e.target.value,
-        }));
+        dispatch(setLimit(+e.target.value));
     };
 
-    const setAuthor = (value: string) => {
-        if (Number.isNaN(+value)) {
-            return;
-        }
-
-        const author = +value > 0 ? +value : undefined;
-
-        setFilter((prevValue) => ({
-            ...prevValue,
-            author,
-        }));
+    const updateAuthor = (value: string) => {
+        dispatch(setAuthor(value));
     };
 
-    const setLesson = (value: string) => {
-        if (Number.isNaN(+value)) {
-            return;
-        }
+    const updateLesson = (value: string) => {
+        dispatch(setLesson(value));
+    };
 
-        const lesson_num = +value > 0 ? +value : undefined;
-
-        setFilter((prevValue) => ({
-            ...prevValue,
-            lesson_num,
-        }));
+    const updateTitle = (value: string) => {
+        dispatch(setTitle(value));
     };
 
     const handleChangeOrder = (e: SelectChangeEvent) => {
-        setFilter((prevValue: PostsFilterType) => ({
-            ...prevValue,
-            page: 1,
-            ordering: e.target.value as PostsOrder,
-        }));
+        dispatch(setOrder(e.target.value as PostsOrder));
     };
 
     return (
@@ -78,7 +64,7 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 <InputLabel id="posts-limit">{t("filter.limit")}</InputLabel>
                 <Select
                     labelId="posts-limit"
-                    value={filter.limit.toString()}
+                    value={state.limit.toString()}
                     label="Limit"
                     onChange={handleChangeLimit}
                 >
@@ -89,15 +75,21 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
             </FormControl>
 
             <TextField
-                value={filter.author?.toString()}
-                setValue={setAuthor}
+                value={state.author?.toString()}
+                setValue={updateAuthor}
                 placeholder="Author"
             />
 
             <TextField
-                value={filter.lesson_num?.toString()}
-                setValue={setLesson}
+                value={state.lesson_num?.toString()}
+                setValue={updateLesson}
                 placeholder="Lesson"
+            />
+
+            <TextField
+                value={state.title?.toString()}
+                setValue={updateTitle}
+                placeholder="Title"
             />
 
             <FormControl sx={{ m: 1, minWidth: 220 }} size="small">
@@ -106,7 +98,7 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
                 </InputLabel>
                 <Select
                     labelId="posts-ordering"
-                    value={filter.ordering}
+                    value={state.ordering}
                     label="Ordering"
                     onChange={handleChangeOrder}
                 >
@@ -130,8 +122,8 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
 
             <Pagination
                 className="Posts-pagination"
-                page={filter.page}
-                count={Math.ceil(count / filter.limit)}
+                page={state.page}
+                count={Math.ceil(count / state.limit)}
                 onChange={handleChangePage}
                 color="primary"
             />
@@ -140,39 +132,3 @@ const PostsFilter: React.FC<PropsType> = ({ count, filter, setFilter }) => {
 };
 
 export default PostsFilter;
-
-{
-    /* <TextField
-                label={t("filter.author")}
-                size="small"
-                value={filter.author}
-                onChange={authorHandler}
-            />
-
-            <TextField
-                label={t("filter.lesson")}
-                size="small"
-                value={filter.lesson_num}
-                onChange={lessonHandler}
-            /> */
-}
-
-// const authorHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setFilter((prevValue) => {
-//         if (Number.isNaN(+e.target.value)) {
-//             return { ...prevValue };
-//         } else {
-//             return { ...prevValue, author: +e.target.value };
-//         }
-//     }); //проверка, что не число
-// };
-
-// const lessonHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setFilter((prevValue) => {
-//         if (Number.isNaN(+e.target.value)) {
-//             return { ...prevValue };
-//         } else {
-//             return { ...prevValue, lesson_num: +e.target.value };
-//         }
-//     }); //проверка, что не число
-// };

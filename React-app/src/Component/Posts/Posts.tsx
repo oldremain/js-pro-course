@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import useTranslate from "../hooks/useTranslate";
 import PostsFilter from "./PostsFilter/PostsFilter";
-import { PostsFilterType } from "./PostsFilter/PostsFilterType";
+import {
+    initialState,
+    PostsFilterReducer,
+} from "./PostsFilter/PostsFilterReducer";
 import PostsCard from "./Card/PostsCard";
 import Error from "./Error/Error";
 import Loader from "./Loader/Loader";
@@ -13,21 +16,14 @@ type PropsType = {};
 
 const Posts: React.FC<PropsType> = () => {
     const { t } = useTranslate();
-    const [filter, setFilter] = useState<PostsFilterType>({
-        limit: 10,
-        page: 1,
-        ordering: "",
-    });
 
-    const { data, loading, error, setError } = usePosts(filter);
+    const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
+
+    const { data, loading, error, setError } = usePosts(state);
 
     return (
         <section className="Posts">
-            <PostsFilter
-                count={data.count}
-                filter={filter}
-                setFilter={setFilter}
-            />
+            <PostsFilter count={data.count} state={state} dispatch={dispatch} />
 
             {!loading && (
                 <div className="Post-count">

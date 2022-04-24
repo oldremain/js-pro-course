@@ -28,7 +28,7 @@ const usePostRequest = <T>(defValue: T, url: string) => {
         axios
             .get(url)
             .then((response) => {
-                // console.log(response.data);
+                //console.log(response.data);
                 setError({
                     status: false,
                     name: "",
@@ -38,7 +38,7 @@ const usePostRequest = <T>(defValue: T, url: string) => {
                 setData(response.data as T);
             })
             .catch((error) => {
-                // console.log(error);
+                //console.log(error);
                 setError({
                     status: true,
                     name: error.name,
