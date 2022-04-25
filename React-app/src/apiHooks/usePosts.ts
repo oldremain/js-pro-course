@@ -1,12 +1,6 @@
-import PostsFilterType from "../Component/Posts/PostsFilter/PostsFilterType";
+import { PostsFilterType } from "../Component/Posts/PostsFilter/PostsFilterTypes";
 import PostType from "../types/PostType";
 import usePostRequest from "./usePostRequest";
-
-export type ErrorType = {
-    status: boolean;
-    name: string;
-    message: string;
-};
 
 type ResponseType = {
     count: number;
@@ -23,10 +17,11 @@ const defValue: ResponseType = {
 const URL = "https://studapi.teachmeskills.by/blog/posts/?";
 
 const usePosts = ({
-    page,
     limit,
+    page,
     author,
     lesson_num,
+    title,
     ordering,
 }: PostsFilterType) => {
     const offset = limit * (page - 1);
@@ -40,6 +35,10 @@ const usePosts = ({
 
     if (lesson_num) {
         url += `&lesson_num=${lesson_num}`;
+    }
+
+    if (title) {
+        url += `&search=${title}`;
     }
 
     if (ordering) {

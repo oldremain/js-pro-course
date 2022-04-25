@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import FormField from "../../UI/FormField/FormField";
-import Button from "../../UI/Button/Button";
+import FormTextField from "../../UI/FormTextField/FormTextField";
+import FormButton from "../../UI/FormButton/FormButton";
 import FormValuesType from "../../../types/FormValuesType";
 import useTranslate from "../../hooks/useTranslate";
-
-import "./Controls.scss";
 
 const Controls: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
@@ -18,7 +16,7 @@ const Controls: React.FC = () => {
 
     return (
         <form className="Form-body" autoComplete="off">
-            <FormField
+            <FormTextField
                 autofocus
                 label={t("registration.email")}
                 values={values}
@@ -26,14 +24,14 @@ const Controls: React.FC = () => {
                 name="email"
                 setValues={setValues}
             />
-            <FormField
+            <FormTextField
                 label={t("registration.password")}
                 values={values}
                 type="password"
                 name="password"
                 setValues={setValues}
             />
-            <Button onClick={submitHandler}>{t("login.submit")}</Button>
+            <FormButton onClick={submitHandler}>{t("login.submit")}</FormButton>
         </form>
     );
 };

@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Logo from "./Logo/Logo";
 import Navigation from "./Navigation/Navigation";
 import Burger from "./Burger/Burger";
-//import HeaderBody from "../HeaderBody/HeaderBody";
 import Language from "./SwitchLanguage/Language";
 
 import "./Header.scss";
