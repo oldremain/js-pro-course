@@ -6,6 +6,7 @@ import Posts from "./Component/Posts/Posts";
 import Registration from "./Component/Registration/Registration";
 import Login from "./Component/Login/Login";
 import PostById from "./Component/PostById/PostById";
+import Clicker from "./Component/Clicker/Clicker";
 
 import "./App.scss";
 
@@ -21,6 +22,16 @@ const App: React.FC = () => {
                     </Route>
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/login" element={<Login />} />
+                    <Route
+                        path="/clicker"
+                        element={
+                            <div style={{ marginTop: "120px" }}>
+                                <Clicker />
+                                <Clicker />
+                                <Clicker />
+                            </div>
+                        }
+                    />
                     <Route path="*" element={<Navigate to={"/"} />} />
                 </Route>
             </Routes>

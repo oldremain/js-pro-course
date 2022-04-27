@@ -4,6 +4,7 @@ import usePostById from "../../apiHooks/usePostById";
 import Image from "../PostImage/Image";
 import Loader from "../Posts/Loader/Loader";
 import Error from "../Posts/Error/Error";
+import Clicker from "../Clicker/Clicker";
 
 import "./PostById.scss";
 
@@ -30,12 +31,14 @@ const PostById: React.FC = () => {
     }
 
     return (
-        <Link to={`/posts/${id}`} className="Card-wrap Card-wrap__post-id">
-            <Image data={data} />
-            <div className="Title">{data.title}</div>
-            <div className="Text">{data.text}</div>
-            <div className="Date">{data.date}</div>
-        </Link>
+        <>
+            <Link to={`/posts/${id}`} className="Card-wrap Card-wrap__post-id">
+                <Image data={data} />
+                <div className="Title">{data.title}</div>
+                <div className="Text">{data.text}</div>
+                <div className="Date">{data.date}</div>
+            </Link>
+        </>
     );
 };
 
