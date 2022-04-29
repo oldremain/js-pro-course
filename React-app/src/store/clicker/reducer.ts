@@ -1,3 +1,4 @@
+import cloneDeep from "lodash.clonedeep";
 import {
     ClickerStateType,
     ClickerActionType,
@@ -14,17 +15,16 @@ export const clickerReducer = (
 ): ClickerStateType => {
     switch (action.type) {
         case ClickerActionTypes.SET_VALUE: {
-            return {
-                ...state,
-                value: action.payload,
-            };
+            const clone = cloneDeep(state);
+            clone.value = action.payload;
+
+            return clone;
         }
         case ClickerActionTypes.SHIFT_VALUE: {
-            const value = state.value + action.payload;
-            return {
-                ...state,
-                value,
-            };
+            const clone = cloneDeep(state);
+            clone.value = clone.value + action.payload;
+
+            return clone;
         }
         default:
             return state;
