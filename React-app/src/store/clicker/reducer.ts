@@ -1,29 +1,18 @@
-import cloneDeep from "lodash.clonedeep";
+import { createReducer } from "@reduxjs/toolkit";
 import { setValue, shiftValue } from "./actionCreators";
-import { ClickerStateType, ClickerActionType } from "./types";
+import { ClickerStateType } from "./types";
 
 const initialState: ClickerStateType = {
     value: 0,
 };
 
-export const clickerReducer = (
-    state = initialState,
-    action: ClickerActionType
-): ClickerStateType => {
-    switch (action.type) {
-        case setValue.type: {
-            const clone = cloneDeep(state);
-            clone.value = action.payload;
+export const clickerReducer = createReducer(initialState, {
+    [setValue.type]: (state, action) => {
+        state.value = action.payload;
+    },
+    [shiftValue.type]: (state, action) => {
+        state.value = state.value + action.payload;
+    },
+});
 
-            return clone;
-        }
-        case shiftValue.type: {
-            const clone = cloneDeep(state);
-            clone.value = clone.value + action.payload;
-
-            return clone;
-        }
-        default:
-            return state;
-    }
-};
+console.log(clickerReducer.getInitialState());

@@ -5,7 +5,7 @@ import PlusOneIcon from "@mui/icons-material/PlusOne";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const Clicker = () => {
-    const state = useSelector((state) => state.clicker.value);
+    const count = useSelector((state) => state.clicker.value);
 
     const { setValue, shiftValue } = useActions();
 
@@ -34,7 +34,7 @@ const Clicker = () => {
                         onClick={decrement}
                         startIcon={<RemoveIcon />}
                     ></Button>
-                    <Box>{state}</Box>
+                    <Box>{count}</Box>
                     <Button
                         variant="outlined"
                         onClick={increment}
