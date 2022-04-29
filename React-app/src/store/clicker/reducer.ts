@@ -1,16 +1,20 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { setValue, shiftValue } from "./actionCreators";
-import { ClickerStateType } from "./types";
+// import { setValue, shiftValue } from "./actionCreators";
+import {
+    ClickerActionType,
+    ClickerActionTypes,
+    ClickerStateType,
+} from "./types";
 
 const initialState: ClickerStateType = {
     value: 0,
 };
 
 export const clickerReducer = createReducer(initialState, {
-    [setValue.type]: (state, action) => {
+    [ClickerActionTypes.SET_VALUE]: (state, action: ClickerActionType) => {
         state.value = action.payload;
     },
-    [shiftValue.type]: (state, action) => {
+    [ClickerActionTypes.SHIFT_VALUE]: (state, action: ClickerActionType) => {
         state.value = state.value + action.payload;
     },
 });

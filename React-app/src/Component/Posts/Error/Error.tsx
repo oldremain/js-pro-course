@@ -1,4 +1,5 @@
 import React from "react";
+import { PostActionType } from "../../../store/post/types";
 import PostErrorType from "../../../types/PostErrorType";
 
 import "./Error.scss";
@@ -7,7 +8,7 @@ type PropsType = {
     name: string;
     message: string;
     isVisible: boolean;
-    setError: (callback: (v: PostErrorType) => PostErrorType) => void;
+    setError: (v: PostErrorType) => void;
 };
 
 const Error: React.FC<PropsType> = ({ isVisible, setError, name, message }) => {
@@ -22,10 +23,12 @@ const Error: React.FC<PropsType> = ({ isVisible, setError, name, message }) => {
                 <button
                     className="Error-btn"
                     onClick={() => {
-                        setError((prevValue) => ({
-                            ...prevValue,
+                        setError({
+                            status: true,
+                            name,
+                            message,
                             isVisible: false,
-                        }));
+                        });
                     }}
                 >
                     Ok
