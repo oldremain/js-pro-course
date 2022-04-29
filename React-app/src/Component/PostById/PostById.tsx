@@ -1,34 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import usePostById from "../../apiHooks/usePostById";
+import useSelector from "../hooks/useSelector";
+import useActions from "../hooks/useActions";
+import axios from "axios";
 import Image from "../PostImage/Image";
 import Loader from "../Posts/Loader/Loader";
 import Error from "../Posts/Error/Error";
-import Clicker from "../Clicker/Clicker";
 import PostType from "../../types/PostType";
-import ErrorType from "../../types/PostErrorType";
 
 import "./PostById.scss";
-import axios from "axios";
-import useSelector from "../hooks/useSelector";
-import useActions from "../hooks/useActions";
 
 const URL = "https://studapi.teachmeskills.by/blog/posts/";
 
 const PostById: React.FC = () => {
     const { id } = useParams();
     const url = `${URL}/${id}`;
-
-    // const { data, loading, error, setError } = usePostById(id);
-
-    // const [data, setData] = useState<PostType | undefined>();
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState<ErrorType>({
-    //     status: false,
-    //     name: "",
-    //     message: "",
-    //     isVisible: false,
-    // });
 
     const data = useSelector((state) => state.post.data);
     const loading = useSelector((state) => state.post.loading);
