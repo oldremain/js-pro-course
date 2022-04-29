@@ -1,24 +1,24 @@
 import { useDispatch } from "react-redux";
-import useTypedSelector from "../hooks/useTypedSelector";
-import { setValue, shiftValue } from "../../store/clicker/actionCreators";
+import useSelector from "../hooks/useTypedSelector";
+import actions from "../../store/actions";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import PlusOneIcon from "@mui/icons-material/PlusOne";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 const Clicker = () => {
-    const state = useTypedSelector((state) => state.clicker.value);
+    const state = useSelector((state) => state.clicker.value);
     // const state = useSelector((state: any) => state);
     const dispatch = useDispatch();
 
     const reset = () => {
-        dispatch(setValue(0));
+        dispatch(actions.setValue(0));
     };
 
     const decrement = () => {
-        dispatch(shiftValue(-1));
+        dispatch(actions.shiftValue(-1));
     };
     const increment = () => {
-        dispatch(shiftValue(1));
+        dispatch(actions.shiftValue(1));
     };
 
     return (
