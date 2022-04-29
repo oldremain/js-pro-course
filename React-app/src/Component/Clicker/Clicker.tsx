@@ -1,13 +1,9 @@
-import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
+import { useDispatch } from "react-redux";
+import useTypedSelector from "../hooks/useTypedSelector";
+import { setValue, shiftValue } from "../../store/clicker/actionCreators";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import PlusOneIcon from "@mui/icons-material/PlusOne";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { setValue, shiftValue } from "../../store/clicker/actionCreators";
-import store from "../../store/store";
-
-const useTypedSelector: TypedUseSelectorHook<
-    ReturnType<typeof store.getState>
-> = useSelector;
 
 const Clicker = () => {
     const state = useTypedSelector((state) => state.clicker.value);
