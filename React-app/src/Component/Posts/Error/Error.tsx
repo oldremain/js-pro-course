@@ -1,12 +1,11 @@
 import React from "react";
-import { PostActionType } from "../../../store/post/types";
 import PostErrorType from "../../../types/PostErrorType";
 
 import "./Error.scss";
 
 type PropsType = {
-    name: string;
-    message: string;
+    name?: string;
+    message?: string;
     isVisible: boolean;
     setError: (v: PostErrorType) => void;
 };

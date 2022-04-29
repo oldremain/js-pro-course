@@ -3,7 +3,7 @@ import { PostStateType, PostActionType, PostActionTypes } from "./types";
 const initialState: PostStateType = {
     data: undefined,
     loading: false,
-    error: { status: false, name: "", message: "", isVisible: false },
+    error: { status: false, isVisible: false },
 };
 
 export const postReducer = (

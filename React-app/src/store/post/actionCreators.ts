@@ -1,4 +1,4 @@
-import ErrorType from "../../types/PostErrorType";
+import PostErrorType from "../../types/PostErrorType";
 import PostType from "../../types/PostType";
 import { PostActionType, PostActionTypes } from "./types";
 
@@ -12,7 +12,7 @@ export const setPostLoading = (value: boolean): PostActionType => ({
     payload: value,
 });
 
-export const setPostError = (value: ErrorType): PostActionType => ({
+export const setPostError = (value: PostErrorType): PostActionType => ({
     type: PostActionTypes.SET_ERROR,
     payload: value,
 });

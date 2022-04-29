@@ -31,8 +31,8 @@ const PostById: React.FC = () => {
                 //console.log(response.data);
                 setPostError({
                     status: false,
-                    name: "",
-                    message: "",
+                    name: undefined,
+                    message: undefined,
                     isVisible: false,
                 });
                 setPost(response.data as PostType);

@@ -1,8 +1,8 @@
-type ErrorType = {
+type PostErrorType = {
     status: boolean;
-    name: string;
-    message: string;
+    name?: string;
+    message?: string;
     isVisible: boolean;
 };
 
-export default ErrorType;
+export default PostErrorType;
