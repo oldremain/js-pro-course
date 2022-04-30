@@ -4,7 +4,7 @@ import PostType from "../../types/PostType";
 import actions from "../actions";
 import { PostActionType, PostActionTypes } from "./types";
 
-const URL = "https://studapi.teachmeskills.by/blog/posts/";
+const URL = "https://studapi.teachmeskills.by/blog/psts/";
 
 export const fetchPost = (id?: string) => async (dispatch: any) => {
     dispatch(setPostLoading(true));
@@ -19,11 +19,11 @@ export const fetchPost = (id?: string) => async (dispatch: any) => {
     );
     const url = `${URL}/${id}`;
 
-    const response = await axios.get(url);
-
     try {
+        const response = await axios.get(url);
         dispatch(setPost(response.data as PostType));
     } catch (error: any) {
+        console.log(error);
         dispatch(
             setPostError({
                 status: true,
