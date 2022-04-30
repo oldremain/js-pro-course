@@ -1,5 +1,4 @@
 import { createReducer } from "@reduxjs/toolkit";
-// import { setValue, shiftValue } from "./actionCreators";
 import {
     ClickerActionType,
     ClickerActionTypes,
@@ -19,4 +18,5 @@ export const clickerReducer = createReducer(initialState, {
     },
 });
 
-console.log(clickerReducer.getInitialState());
+//console.log(clickerReducer.getInitialState());
+// default value ??

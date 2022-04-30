@@ -25,8 +25,8 @@ const usePostRequest = <T>(defValue: T, url: string) => {
                 //console.log(response.data);
                 setError({
                     status: false,
-                    name: "",
-                    message: "",
+                    name: undefined,
+                    message: undefined,
                     isVisible: false,
                 });
                 setData(response.data as T);

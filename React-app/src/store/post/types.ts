@@ -1,10 +1,10 @@
-import ErrorType from "../../types/PostErrorType";
+import PostErrorType from "../../types/PostErrorType";
 import PostType from "../../types/PostType";
 
 export type PostStateType = {
     data?: PostType;
     loading: boolean;
-    error: ErrorType;
+    error: PostErrorType;
 };
 
 export enum PostActionTypes {
@@ -25,7 +25,7 @@ type SetLoadingAction = {
 
 type SetErrorAction = {
     type: PostActionTypes.SET_ERROR;
-    payload: ErrorType;
+    payload: PostErrorType;
 };
 
 export type PostActionType = SetDataAction | SetLoadingAction | SetErrorAction;
