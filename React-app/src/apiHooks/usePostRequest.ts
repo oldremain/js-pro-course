@@ -7,8 +7,8 @@ const usePostRequest = <T>(defValue: T, url: string) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<PostErrorType>({
         status: false,
-        name: "",
-        message: "",
+        name: undefined,
+        message: undefined,
         isVisible: false,
     });
 
@@ -25,8 +25,8 @@ const usePostRequest = <T>(defValue: T, url: string) => {
                 //console.log(response.data);
                 setError({
                     status: false,
-                    name: "",
-                    message: "",
+                    name: undefined,
+                    message: undefined,
                     isVisible: false,
                 });
                 setData(response.data as T);
