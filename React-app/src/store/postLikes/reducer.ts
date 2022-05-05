@@ -6,7 +6,7 @@ import {
     PostLikeActionType,
 } from "./types";
 
-const getLikesFromLocalStorage = (key: string) => {
+const getGradesFromLocalStorage = (key: string) => {
     try {
         switch (key) {
             case PostGrade.LIKES: {
@@ -61,8 +61,8 @@ function handleDislike(state: PostLikesType, action: PostLikeActionType) {
 }
 
 const initialState: PostLikesType = {
-    likes: getLikesFromLocalStorage(PostGrade.LIKES),
-    dislikes: getLikesFromLocalStorage(PostGrade.DISLIKES),
+    likes: getGradesFromLocalStorage(PostGrade.LIKES),
+    dislikes: getGradesFromLocalStorage(PostGrade.DISLIKES),
 };
 
 export const postLikesReducer = createReducer(initialState, {
