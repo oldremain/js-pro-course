@@ -42,13 +42,13 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
                 <div className="Text">{data.text}</div>
                 <div className="Date">{data.date}</div>
                 <Stack direction="row" className="Card-like-controls">
-                    <IconButton aria-label="like" onClick={likeHandler}>
+                    <IconButton onClick={likeHandler}>
                         <ThumbUpIcon
                             fontSize="small"
                             sx={{ fontSize: 17, color: isLiked ? "green" : "" }}
                         />
                     </IconButton>
-                    <IconButton aria-label="dislike" onClick={dislikeHandler}>
+                    <IconButton onClick={dislikeHandler}>
                         <ThumbDownIcon
                             fontSize="small"
                             sx={{
@@ -57,7 +57,7 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
                             }}
                         />
                     </IconButton>
-                    <IconButton aria-label="dislike" onClick={markHandler}>
+                    <IconButton onClick={markHandler}>
                         <BookmarkIcon
                             fontSize="small"
                             sx={{

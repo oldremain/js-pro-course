@@ -27,7 +27,7 @@ const getGradesFromLocalStorage = (key: string) => {
     } catch {}
 };
 
-const setLikesToLocalStorage = (likes: number[], dislikes: number[]) => {
+const setGradesToLocalStorage = (likes: number[], dislikes: number[]) => {
     try {
         localStorage.setItem(
             "likesState",
@@ -46,7 +46,7 @@ function handleLike(state: PostLikesType, action: PostLikeActionType) {
         );
     }
 
-    setLikesToLocalStorage(state.likes, state.dislikes);
+    setGradesToLocalStorage(state.likes, state.dislikes);
 }
 
 function handleDislike(state: PostLikesType, action: PostLikeActionType) {
@@ -59,7 +59,7 @@ function handleDislike(state: PostLikesType, action: PostLikeActionType) {
         state.likes = state.likes.filter((like) => like !== action.payload);
     }
 
-    setLikesToLocalStorage(state.likes, state.dislikes);
+    setGradesToLocalStorage(state.likes, state.dislikes);
 }
 
 const initialState: PostLikesType = {
