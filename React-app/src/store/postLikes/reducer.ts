@@ -21,6 +21,8 @@ const getGradesFromLocalStorage = (key: string) => {
                 );
                 return dislikes;
             }
+            default:
+                return [];
         }
     } catch {}
 };
