@@ -7,27 +7,31 @@ import {
 } from "./types";
 
 const getLikesFromLocalStorage = (key: string) => {
-    switch (key) {
-        case PostGrade.LIKES: {
-            const { likes } = JSON.parse(
-                localStorage.getItem("likesState") || '{"likes": []}'
-            );
-            return likes;
+    try {
+        switch (key) {
+            case PostGrade.LIKES: {
+                const { likes } = JSON.parse(
+                    localStorage.getItem("likesState") || '{"likes": []}'
+                );
+                return likes;
+            }
+            case PostGrade.DISLIKES: {
+                const { dislikes } = JSON.parse(
+                    localStorage.getItem("likesState") || '{"dislikes": []}'
+                );
+                return dislikes;
+            }
         }
-        case PostGrade.DISLIKES: {
-            const { dislikes } = JSON.parse(
-                localStorage.getItem("likesState") || '{"dislikes": []}'
-            );
-            return dislikes;
-        }
-    }
+    } catch {}
 };
 
 const setLikesToLocalStorage = (likes: number[], dislikes: number[]) => {
-    localStorage.setItem(
-        "likesState",
-        JSON.stringify(Object.assign({}, { likes }, { dislikes }))
-    );
+    try {
+        localStorage.setItem(
+            "likesState",
+            JSON.stringify(Object.assign({}, { likes }, { dislikes }))
+        );
+    } catch {}
 };
 
 function handleLike(state: PostLikesType, action: PostLikeActionType) {

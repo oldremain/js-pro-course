@@ -6,11 +6,15 @@ import {
 } from "./types";
 
 function setMarkedPostsToLocalStorage(posts: number[]) {
-    localStorage.setItem("markedPosts", JSON.stringify(posts));
+    try {
+        localStorage.setItem("markedPosts", JSON.stringify(posts));
+    } catch {}
 }
 
 function getMarkedPostsFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("markedPosts") || "[]");
+    try {
+        return JSON.parse(localStorage.getItem("markedPosts") || "[]");
+    } catch {}
 }
 
 const initialState: PostBookmarks = {
