@@ -20,17 +20,17 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
     const { id } = data;
 
     const { likes, dislikes } = useSelector((state) => state.postLikes); // likes[], dislikes[]
-    const { setLike, setDislike } = useActions();
+    const { markedPosts } = useSelector((state) => state.postMarks);
+
+    const { setLike, setDislike, setPostMarked } = useActions();
 
     const isLiked = likes.includes(id);
     const isDisliked = dislikes.includes(id);
+    const isMarked = markedPosts.includes(id);
 
-    const likeHandler = () => {
-        setLike(id);
-    };
-    const dislikeHandler = () => {
-        setDislike(id);
-    };
+    const likeHandler = () => setLike(id);
+    const dislikeHandler = () => setDislike(id);
+    const markHandler = () => setPostMarked(id);
 
     return (
         <>
@@ -57,12 +57,12 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
                             }}
                         />
                     </IconButton>
-                    <IconButton aria-label="dislike" onClick={dislikeHandler}>
+                    <IconButton aria-label="dislike" onClick={markHandler}>
                         <BookmarkIcon
                             fontSize="small"
                             sx={{
                                 fontSize: 17,
-                                color: "yellow",
+                                color: isMarked ? "yellow" : "",
                             }}
                         />
                     </IconButton>

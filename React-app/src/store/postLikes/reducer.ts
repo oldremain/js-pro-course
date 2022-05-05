@@ -32,14 +32,12 @@ const setLikesToLocalStorage = (likes: number[], dislikes: number[]) => {
 
 function handleLike(state: PostLikesType, action: PostLikeActionType) {
     if (state.likes.includes(action.payload)) {
-        state.likes = [
-            ...state.likes.filter((like) => like !== action.payload),
-        ];
+        state.likes = state.likes.filter((like) => like !== action.payload);
     } else {
         state.likes = [...state.likes, action.payload];
-        state.dislikes = [
-            ...state.dislikes.filter((dislike) => dislike !== action.payload),
-        ];
+        state.dislikes = state.dislikes.filter(
+            (dislike) => dislike !== action.payload
+        );
     }
 
     setLikesToLocalStorage(state.likes, state.dislikes);
@@ -47,14 +45,12 @@ function handleLike(state: PostLikesType, action: PostLikeActionType) {
 
 function handleDislike(state: PostLikesType, action: PostLikeActionType) {
     if (state.dislikes.includes(action.payload)) {
-        state.dislikes = [
-            ...state.dislikes.filter((dislike) => dislike !== action.payload),
-        ];
+        state.dislikes = state.dislikes.filter(
+            (dislike) => dislike !== action.payload
+        );
     } else {
         state.dislikes = [...state.dislikes, action.payload];
-        state.likes = [
-            ...state.likes.filter((like) => like !== action.payload),
-        ];
+        state.likes = state.likes.filter((like) => like !== action.payload);
     }
 
     setLikesToLocalStorage(state.likes, state.dislikes);
