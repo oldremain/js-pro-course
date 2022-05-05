@@ -4,5 +4,6 @@ import reducers from "./reducers";
 const store = configureStore({
     reducer: reducers,
 });
+console.log(store);
 
 export default store;

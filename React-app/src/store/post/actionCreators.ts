@@ -7,10 +7,10 @@ import { PostActionType, PostActionTypes } from "./types";
 const URL = "https://studapi.teachmeskills.by/blog/psts/";
 
 export const fetchPost = (id?: string) => async (dispatch: any) => {
-    dispatch(setPostLoading(true));
-    dispatch(setPost(undefined));
+    dispatch(actions.setPostLoading(true));
+    dispatch(actions.setPost(undefined));
     dispatch(
-        setPostError({
+        actions.setPostError({
             status: false,
             name: undefined,
             message: undefined,
@@ -21,11 +21,11 @@ export const fetchPost = (id?: string) => async (dispatch: any) => {
 
     try {
         const response = await axios.get(url);
-        dispatch(setPost(response.data as PostType));
+        dispatch(actions.setPost(response.data as PostType));
     } catch (error: any) {
         console.log(error);
         dispatch(
-            setPostError({
+            actions.setPostError({
                 status: true,
                 name: error.name,
                 message: error.message,
@@ -33,7 +33,7 @@ export const fetchPost = (id?: string) => async (dispatch: any) => {
             })
         );
     }
-    dispatch(setPostLoading(false));
+    dispatch(actions.setPostLoading(false));
 };
 
 export const setPost = (value?: PostType): PostActionType => ({
