@@ -6,6 +6,7 @@ import {
     PostsFilterReducer,
 } from "./PostsFilter/PostsFilterReducer";
 import PostType from "../../types/PostType";
+import { PostsChoice } from "../../types/PostsChoice";
 
 import Loader from "./Loader/Loader";
 import PostsCard from "./Card/PostsCard";
@@ -23,11 +24,11 @@ const PostsFront: React.FC<PropsType> = () => {
     const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
     const { data, loading, error, setError } = usePosts(state);
 
-    const [alignment, setAlignment] = useState("liked");
+    const [alignment, setAlignment] = useState(PostsChoice.LIKED);
 
     const handleChange = (
         event: React.MouseEvent<HTMLElement>,
-        newAlignment: string
+        newAlignment: PostsChoice
     ) => {
         setAlignment(newAlignment);
     };
@@ -56,13 +57,13 @@ const PostsFront: React.FC<PropsType> = () => {
                 exclusive
                 onChange={handleChange}
             >
-                <ToggleButton value="liked">
+                <ToggleButton value={PostsChoice.LIKED}>
                     <MoodIcon />
                 </ToggleButton>
-                <ToggleButton value="disliked">
+                <ToggleButton value={PostsChoice.DISLIKED}>
                     <SentimentVeryDissatisfiedIcon />
                 </ToggleButton>
-                <ToggleButton value="marked">
+                <ToggleButton value={PostsChoice.MARKED}>
                     <BookmarkIcon />
                 </ToggleButton>
             </ToggleButtonGroup>
