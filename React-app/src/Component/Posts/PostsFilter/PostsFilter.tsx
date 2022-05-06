@@ -34,29 +34,18 @@ type PropsType = {
 const PostsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
     const { t } = useTranslate();
 
-    const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {
+    const handleChangePage = (_: React.ChangeEvent<unknown>, value: number) =>
         dispatch(setPage(value));
-    };
 
-    const handleChangeLimit = (e: SelectChangeEvent) => {
+    const handleChangeLimit = (e: SelectChangeEvent) =>
         dispatch(setLimit(+e.target.value));
-    };
 
-    const updateAuthor = (value: string) => {
-        dispatch(setAuthor(value));
-    };
+    const updateAuthor = (value: string) => dispatch(setAuthor(value));
+    const updateLesson = (value: string) => dispatch(setLesson(value));
+    const updateTitle = (value: string) => dispatch(setTitle(value));
 
-    const updateLesson = (value: string) => {
-        dispatch(setLesson(value));
-    };
-
-    const updateTitle = (value: string) => {
-        dispatch(setTitle(value));
-    };
-
-    const handleChangeOrder = (e: SelectChangeEvent) => {
+    const handleChangeOrder = (e: SelectChangeEvent) =>
         dispatch(setOrder(e.target.value as PostsOrder));
-    };
 
     return (
         <div className="Posts-controls">

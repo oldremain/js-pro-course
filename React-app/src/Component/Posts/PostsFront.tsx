@@ -1,48 +1,101 @@
 import React, { useReducer, useState } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import usePostsByChoice from "./usePostsByChoice";
+import useTranslate from "../hooks/useTranslate";
+import { PostsFilterReducer } from "./PostsFilter/PostsFilterReducer";
 import {
-    initialState,
-    PostsFilterReducer,
-} from "./PostsFilter/PostsFilterReducer";
+    setAuthor,
+    setLesson,
+    setTitle,
+} from "./PostsFilter/PostsFilterActionCreators";
 import PostType from "../../types/PostType";
+import { PostsFilterType, PostsOrder } from "./PostsFilter/PostsFilterTypes";
 import { PostsChoice } from "../../enums/PostsChoice";
 
 import Loader from "./Loader/Loader";
 import PostsCard from "./Card/PostsCard";
 import Error from "./Error/Error";
-import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Pagination, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import MoodIcon from "@mui/icons-material/Mood";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import TextField from "../UI/TextField/TextField";
 
 import "./Posts.scss";
+
+const initialState: PostsFilterType = {
+    limit: 100,
+    page: 1,
+    ordering: PostsOrder.nothing,
+};
+
+const PAGE_SIZE: number = 4;
 
 type PropsType = {};
 
 const PostsFront: React.FC<PropsType> = () => {
-    const [state] = useReducer(PostsFilterReducer, initialState);
-    const { data, loading, error, setError } = usePosts(state);
+    const { t } = useTranslate();
 
-    const [alignment, setAlignment] = useState(PostsChoice.LIKED);
-
-    const handleChange = (
-        event: React.MouseEvent<HTMLElement>,
-        newAlignment: PostsChoice
-    ) => {
-        setAlignment(newAlignment);
+    const [page, setPage] = useState(1);
+    const handleChangePage = (_: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
     };
 
-    const filteredData: PostType[] = usePostsByChoice(alignment, data);
+    const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
+    const { data, loading, error, setError } = usePosts(state);
+
+    const [mode, setMode] = useState(PostsChoice.LIKED);
+
+    const handleToggleMode = (
+        _: React.MouseEvent<HTMLElement>,
+        newMode: PostsChoice
+    ) => {
+        setMode(newMode);
+    };
+
+    const updateTitle = (value: string) => dispatch(setTitle(value));
+    const updateAuthor = (value: string) => dispatch(setAuthor(value));
+    const updateLesson = (value: string) => dispatch(setLesson(value));
+
+    const filteredData: PostType[] = usePostsByChoice(mode, data);
+    const filteredSlicedData: PostType[] = filteredData.slice(
+        PAGE_SIZE * (page - 1),
+        PAGE_SIZE * page
+    );
 
     return (
         <>
+            <div className="Posts-controls">
+                <TextField
+                    value={state.title?.toString()}
+                    setValue={updateTitle}
+                    placeholder={t("filter.title")}
+                />
+                <TextField
+                    value={state.author?.toString()}
+                    setValue={updateAuthor}
+                    placeholder={t("filter.author")}
+                />
+
+                <TextField
+                    value={state.lesson_num?.toString()}
+                    setValue={updateLesson}
+                    placeholder={t("filter.lesson")}
+                />
+                <Pagination
+                    className="Posts-pagination"
+                    page={page}
+                    count={Math.ceil(filteredData.length / PAGE_SIZE)}
+                    onChange={handleChangePage}
+                    color="primary"
+                />
+            </div>
             <ToggleButtonGroup
                 sx={{ mb: 3 }}
                 color="primary"
-                value={alignment}
+                value={mode}
                 exclusive
-                onChange={handleChange}
+                onChange={handleToggleMode}
             >
                 <ToggleButton value={PostsChoice.LIKED}>
                     <MoodIcon />
@@ -57,7 +110,7 @@ const PostsFront: React.FC<PropsType> = () => {
 
             <div className="Posts-wrap">
                 {loading && <Loader />}
-                {filteredData?.map((post) => (
+                {filteredSlicedData.map((post) => (
                     <PostsCard key={post.id} data={post} />
                 ))}
                 {error.status && (
