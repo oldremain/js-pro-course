@@ -1,7 +1,6 @@
 import React, { useReducer } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import useTranslate from "../hooks/useTranslate";
-import useSelector from "../hooks/useSelector";
 import PostsFilter from "./PostsFilter/PostsFilter";
 import {
     initialState,

@@ -1,5 +1,4 @@
-import React, { MouseEventHandler } from "react";
-import useTranslate from "../../hooks/useTranslate";
+import React from "react";
 
 import "./Button.scss";
 
@@ -9,7 +8,6 @@ type PropsType = {
 };
 
 const Button: React.FC<PropsType> = ({ className, children, onClick }) => {
-    const { t } = useTranslate();
     return (
         <button className={className} onClick={onClick}>
             {children}

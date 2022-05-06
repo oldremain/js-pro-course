@@ -21,7 +21,7 @@ import "./Posts.scss";
 type PropsType = {};
 
 const PostsFront: React.FC<PropsType> = () => {
-    const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
+    const [state] = useReducer(PostsFilterReducer, initialState);
     const { data, loading, error, setError } = usePosts(state);
 
     const [alignment, setAlignment] = useState(PostsChoice.LIKED);
