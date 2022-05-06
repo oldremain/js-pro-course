@@ -5,7 +5,7 @@ import PostType from "../../../types/PostType";
 import useSelector from "../../hooks/useSelector";
 import useActions from "../../hooks/useActions";
 
-import "./PostsCard.scss";
+import s from "./PostsCard.module.scss";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -34,14 +34,14 @@ const PostsCard: React.FC<PropsType> = ({ data }) => {
 
     return (
         <>
-            <div className="Card-wrap">
+            <div className={s.CardWrap}>
                 <Link to={`/posts/${data.id}`}>
                     <Image data={data} />
                 </Link>
-                <div className="Title">{data.title}</div>
-                <div className="Text">{data.text}</div>
-                <div className="Date">{data.date}</div>
-                <Stack direction="row" className="Card-like-controls">
+                <div className={s.Title}>{data.title}</div>
+                <div className={s.Text}>{data.text}</div>
+                <div className={s.Date}>{data.date}</div>
+                <Stack direction="row" className={s.CardLikeControls}>
                     <IconButton onClick={likeHandler}>
                         <ThumbUpIcon
                             fontSize="small"

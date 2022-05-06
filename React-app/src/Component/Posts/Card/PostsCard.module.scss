@@ -1,4 +1,4 @@
-.Card-wrap {
+.CardWrap {
     position: relative;
     padding: 30px;
     background: #ffffff;
@@ -20,14 +20,14 @@
         transform: translateY(5px);
     }
 
-    &.Title {
+    .Title {
         font-weight: bolder;
         font-size: 20px;
         line-height: 150%;
         color: #1f3f68;
     }
 
-    &.Text {
+    .Text {
         font-size: 16px;
         line-height: 162%;
         color: #1f3f68;
@@ -36,9 +36,10 @@
         -webkit-line-clamp: 4; // количество строк
         -webkit-box-orient: vertical;
         overflow: hidden;
+        margin-bottom: auto;
     }
 
-    &.Date {
+    .Date {
         font-size: 14px;
         line-height: 214%;
         color: #5a98d0;
@@ -46,8 +47,8 @@
     }
 }
 
-.Card-like-controls {
+.CardLikeControls {
     position: absolute;
-    bottom: 5px;
+    bottom: 29px;
     right: 5px;
 }

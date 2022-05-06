@@ -13,7 +13,9 @@ const Content: React.FC = () => {
             <div className="Header-subtitle">
                 {t("header.mainPage.subtitle")}
             </div>
-            <Button />
+            <Button className="Header-btn" onClick={(e) => e.preventDefault()}>
+                <a href="/">{t("header.mainPage.btn")}</a>
+            </Button>
         </div>
     );
 };

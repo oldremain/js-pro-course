@@ -1,13 +1,18 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import useTranslate from "../../hooks/useTranslate";
 
 import "./Button.scss";
 
-const Button: React.FC = () => {
+type PropsType = {
+    className: string;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+const Button: React.FC<PropsType> = ({ className, children, onClick }) => {
     const { t } = useTranslate();
     return (
-        <button className="Header-btn" onClick={(e) => e.preventDefault()}>
-            <a href="/">{t("header.mainPage.btn")}</a>
+        <button className={className} onClick={onClick}>
+            {children}
         </button>
     );
 };

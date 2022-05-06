@@ -28,6 +28,26 @@
     }
 }
 
+.Posts-btn-filter {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #8fc0eb;
+    border-radius: 10px;
+    padding: 10px 50px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 162%;
+    letter-spacing: 0.04em;
+    transition: all 0.4s ease;
+
+    &:hover {
+        background-color: darken(#5a98d0, 20%);
+    }
+}
+
 @media (max-width: 669px) {
     .Posts-wrap {
         grid-template-columns: repeat(auto-fill, minmax(300px, 80%));
@@ -36,5 +56,13 @@
 
     .Post-count {
         margin: 30px auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .Posts-btn-filter {
+        top: 40px;
+        max-width: 300px;
+        padding: 10px 20px;
     }
 }
