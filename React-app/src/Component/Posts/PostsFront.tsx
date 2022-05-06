@@ -6,7 +6,7 @@ import {
     PostsFilterReducer,
 } from "./PostsFilter/PostsFilterReducer";
 import PostType from "../../types/PostType";
-import { PostsChoice } from "../../types/PostsChoice";
+import { PostsChoice } from "../../enums/PostsChoice";
 
 import Loader from "./Loader/Loader";
 import PostsCard from "./Card/PostsCard";
@@ -33,23 +33,10 @@ const PostsFront: React.FC<PropsType> = () => {
         setAlignment(newAlignment);
     };
 
-    const filteredData: PostType[] | undefined = usePostsByChoice(
-        alignment,
-        data
-    );
+    const filteredData: PostType[] = usePostsByChoice(alignment, data);
 
     return (
         <>
-            {/* <div
-                style={{
-                    marginBottom: "30px",
-                    textAlign: "center",
-                    fontWeight: "bolder",
-                }}
-            >
-                This is PostsFront
-            </div> */}
-
             <ToggleButtonGroup
                 sx={{ mb: 3 }}
                 color="primary"
