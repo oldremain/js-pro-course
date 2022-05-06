@@ -2,7 +2,7 @@ import { PostsFilterType } from "../Component/Posts/PostsFilter/PostsFilterTypes
 import PostType from "../types/PostType";
 import usePostRequest from "./usePostRequest";
 
-type ResponseType = {
+export type ResponseType = {
     count: number;
     next?: string;
     previous?: string;

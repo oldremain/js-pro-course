@@ -17,15 +17,10 @@ type PropsType = {};
 
 const PostsServer: React.FC<PropsType> = () => {
     const { t } = useTranslate();
-    //const { markedPosts } = useSelector((state) => state.postMarks);
 
     const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
 
     const { data, loading, error, setError } = usePosts(state);
-
-    // const filteredPosts = data.results.filter((item) =>
-    //     markedPosts.includes(item.id)
-    // );
 
     return (
         <>
@@ -39,11 +34,12 @@ const PostsServer: React.FC<PropsType> = () => {
             )}
 
             <div className="Posts-wrap">
+                {loading && <Loader />}
+
                 {data.results.map((post) => (
                     <PostsCard key={post.id} data={post} />
                 ))}
 
-                {loading && <Loader />}
                 {error.status && (
                     <Error
                         isVisible={error.isVisible}
