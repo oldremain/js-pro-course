@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useState } from "react";
+import React, { useCallback, useMemo, useReducer, useState } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import usePostsByChoice from "./usePostsByChoice";
 import useTranslate from "../hooks/useTranslate";
@@ -69,9 +69,9 @@ const PostsFront: React.FC<PropsType> = () => {
     };
 
     const filteredData: PostType[] = usePostsByChoice(mode, data);
-    const filteredSlicedData: PostType[] = filteredData.slice(
-        PAGE_SIZE * (page - 1),
-        PAGE_SIZE * page
+    const filteredSlicedData: PostType[] = useMemo(
+        () => filteredData.slice(PAGE_SIZE * (page - 1), PAGE_SIZE * page),
+        [page]
     );
 
     return (
