@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 
 import "./TextField.scss";
 
@@ -11,39 +11,36 @@ type PropsType = {
     setValue: (value: string) => void;
 };
 
-const TextField: React.FC<PropsType> = ({
-    autofocus,
-    placeholder,
-    label,
-    type = "text",
-    value,
-    setValue,
-}) => {
-    const inputRef = useRef<HTMLInputElement>(null);
+const TextField: React.FC<PropsType> = memo(
+    ({ autofocus, placeholder, label, type = "text", value, setValue }) => {
+        const inputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-        if (autofocus) {
-            inputRef.current?.focus();
-        }
-        //console.log(inputRef.current);
-    }, []);
+        useEffect(() => {
+            if (autofocus) {
+                inputRef.current?.focus();
+            }
+            //console.log(inputRef.current);
+        }, []);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-    };
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            setValue(e.target.value);
+        };
 
-    return (
-        <label>
-            {label}
-            <input
-                ref={inputRef}
-                type={type}
-                value={value || ""}
-                onChange={handleChange}
-                placeholder={placeholder}
-            />
-        </label>
-    );
-};
+        console.log("I was rerender");
+
+        return (
+            <label>
+                {label}
+                <input
+                    ref={inputRef}
+                    type={type}
+                    value={value || ""}
+                    onChange={handleChange}
+                    placeholder={placeholder}
+                />
+            </label>
+        );
+    }
+);
 
 export default TextField;

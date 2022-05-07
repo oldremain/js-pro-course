@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import usePosts from "../../apiHooks/usePosts";
 import usePostsByChoice from "./usePostsByChoice";
 import useTranslate from "../hooks/useTranslate";
@@ -37,25 +37,36 @@ const PostsFront: React.FC<PropsType> = () => {
     const { t } = useTranslate();
 
     const [page, setPage] = useState(1);
-    const handleChangePage = (_: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
-    };
+    const handleChangePage = useCallback(
+        (_: React.ChangeEvent<unknown>, value: number) => {
+            setPage(value);
+        },
+        []
+    );
 
     const [state, dispatch] = useReducer(PostsFilterReducer, initialState);
     const { data, loading, error, setError } = usePosts(state);
 
-    const [mode, setMode] = useState(PostsChoice.LIKED);
+    const updateTitle = useCallback(
+        (value: string) => dispatch(setTitle(value)),
+        []
+    );
+    const updateAuthor = useCallback(
+        (value: string) => dispatch(setAuthor(value)),
+        []
+    );
+    const updateLesson = useCallback(
+        (value: string) => dispatch(setLesson(value)),
+        []
+    );
 
+    const [mode, setMode] = useState(PostsChoice.LIKED);
     const handleToggleMode = (
         _: React.MouseEvent<HTMLElement>,
         newMode: PostsChoice
     ) => {
         setMode(newMode);
     };
-
-    const updateTitle = (value: string) => dispatch(setTitle(value));
-    const updateAuthor = (value: string) => dispatch(setAuthor(value));
-    const updateLesson = (value: string) => dispatch(setLesson(value));
 
     const filteredData: PostType[] = usePostsByChoice(mode, data);
     const filteredSlicedData: PostType[] = filteredData.slice(
