@@ -71,7 +71,7 @@ const PostsFront: React.FC<PropsType> = () => {
     const filteredData: PostType[] = usePostsByChoice(mode, data);
     const filteredSlicedData: PostType[] = useMemo(
         () => filteredData.slice(PAGE_SIZE * (page - 1), PAGE_SIZE * page),
-        [page]
+        [page, PAGE_SIZE]
     );
 
     return (
